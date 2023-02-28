@@ -7,7 +7,7 @@
 
 MainWindow::MainWindow(QWidget *Parent)
     : QMainWindow(Parent)
-    , Ui_{new Ui::MainWindow}, PuzzleGrid_{}, EmptyPuzzlePosition_{0, 3}
+    , Ui_{new Ui::MainWindow}, PuzzleGrid_{}, EmptyPuzzlePosition_{0, 3}, EmptyPuzzleIndex{3}
 {
     Ui_->setupUi(this);
     PuzzleGrid_ = findChild<QObject*>("puzzle")->findChild<QGridLayout *>("gridLayout");
@@ -61,6 +61,7 @@ void MainWindow::SwapWithEmptyPuzzle(int WidgetId)
     if(CanSwapWithEmptyPuzzle(Widget->GridPosition()))
     {
         Widget->SwapGridPosition(EmptyPuzzlePosition_);
+        EmptyPuzzleIndex = EmptyPuzzlePosition_.Row * GridSize + EmptyPuzzlePosition_.Column;
         UpdateGridPosition(Widget, Widget->GridPosition());
     }
 }
@@ -77,8 +78,27 @@ bool MainWindow::CanSwapWithEmptyPuzzle(const FGridPosition &WidgetPosition)
 
 FGridPosition MainWindow::IndexToGridPosition(int index)
 {
-    const int EmptyPuzzleIndex = EmptyPuzzlePosition_.Row * GridSize + EmptyPuzzlePosition_.Column;
     return index < EmptyPuzzleIndex ?
            FGridPosition{index / GridSize, index % GridSize} :
            FGridPosition{(index + 1) / GridSize, (index + 1) % GridSize};
+}
+
+int MainWindow::GridPositionToIndex(const FGridPosition &Position)
+{
+    const int Index = Position.Row * GridSize + Position.Column;
+    return Index < EmptyPuzzleIndex ?
+           Index :
+           Index - 1;
+}
+
+bool MainWindow::CheckWin()
+{
+    for (auto& Widget : PuzzleWidgets_)
+    {
+        if(GridPositionToIndex(Widget.get()->GridPosition()) != Widget.get()->Id())
+        {
+            return false;
+        }
+    }
+    return true;
 }

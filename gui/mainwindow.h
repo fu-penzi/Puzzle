@@ -25,6 +25,7 @@ public:
     constexpr static int PuzzleNumber{GridSize * GridSize - 1};
 
 private:
+    int EmptyPuzzleIndex;
     FGridPosition EmptyPuzzlePosition_;
     Ui::MainWindow *Ui_;
     FPuzzleWidgets PuzzleWidgets_;
@@ -41,6 +42,8 @@ private:
     void SwapWithEmptyPuzzle(int WidgetId);
     bool CanSwapWithEmptyPuzzle(const FGridPosition& Position);
     FGridPosition IndexToGridPosition(int index);
+    int GridPositionToIndex(const FGridPosition& Position);
+    bool CheckWin();
 };
 
 #endif // MAINWINDOW_H
