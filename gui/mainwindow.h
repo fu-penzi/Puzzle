@@ -35,9 +35,12 @@ public:
     ~MainWindow();
 
 private:
-    void initPuzzleWidgets();
+    void InitPuzzleWidgets();
+    void UpdateGridPosition(FPuzzleWidget* Widget, const FGridPosition& Position);
+    void ShufflePuzzleWidgets();
     void SwapWithEmptyPuzzle(int WidgetId);
     bool CanSwapWithEmptyPuzzle(const FGridPosition& Position);
+    FGridPosition IndexToGridPosition(int index);
 };
 
 #endif // MAINWINDOW_H
