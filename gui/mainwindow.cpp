@@ -7,7 +7,10 @@
 
 MainWindow::MainWindow(QWidget *Parent)
     : QMainWindow(Parent)
-    , Ui_{new Ui::MainWindow}, PuzzleGrid_{}, EmptyPuzzlePosition_{0, 3}, EmptyPuzzleIndex{3}
+    , Ui_{new Ui::MainWindow}
+, PuzzleGrid_{}
+, EmptyPuzzleIndex{3}
+, EmptyPuzzlePosition_{EmptyPuzzleIndex / GridSize, EmptyPuzzleIndex % GridSize }
 {
     Ui_->setupUi(this);
     PuzzleGrid_ = findChild<QObject*>("puzzle")->findChild<QGridLayout *>("gridLayout");

@@ -21,7 +21,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    constexpr static int GridSize{5};
+    constexpr static int GridSize{2};
     constexpr static int PuzzleNumber{GridSize * GridSize - 1};
 
 private:
