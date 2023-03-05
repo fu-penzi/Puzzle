@@ -22,6 +22,11 @@ set(PROJECT_SOURCES
         src/windialog.ui
         src/windialog.h
         src/windialog.cpp
+        src/game/game.h
+        src/game/game.cpp
+        src/game/puzzle.h
+        src/game/puzzle.cpp
+        images.qrc
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

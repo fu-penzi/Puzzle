@@ -3,20 +3,24 @@
 #include "windialog.h"
 
 #include <QGridLayout>
-
+#include <QPalette>
 #include <iostream>
 
 MainWindow::MainWindow(QWidget *Parent)
     : QMainWindow(Parent)
+    , Game_{FDifficulty::Easy}
     , Ui_{new Ui::MainWindow}
 , PuzzleGrid_{}
-, EmptyPuzzleIndex{3}
-, EmptyPuzzlePosition_{EmptyPuzzleIndex / GridSize, EmptyPuzzleIndex % GridSize }
 {
     Ui_->setupUi(this);
+    QPixmap Bkgnd(":/bg.png");
+    Bkgnd = Bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette Palette;
+    Palette.setBrush(QPalette::Window, Bkgnd);
+    setPalette(Palette);
+
     PuzzleGrid_ = findChild<QObject*>("puzzle")->findChild<QGridLayout *>("gridLayout");
-    PuzzleWidgets_.reserve(PuzzleNumber);
-    InitPuzzleWidgets();
+    NewGame(FDifficulty::Easy);
 }
 
 MainWindow::~MainWindow()
@@ -24,22 +28,26 @@ MainWindow::~MainWindow()
     delete Ui_;
 }
 
+void MainWindow::NewGame(FDifficulty Difficulty)
+{
+//    Game_ = FGame{Difficulty};
+    InitPuzzleWidgets();
+    PuzzleWidgets_.reserve(Game_.GameConfig.PuzzleNumber);
+}
+
 void MainWindow::InitPuzzleWidgets()
 {
-    for (int i = 0; i < PuzzleNumber; ++i)
+    for (auto& Puzzle: Game_.PuzzleVector)
     {
-        FGridPosition GridPosition = IndexToGridPosition(i);
-        FPuzzleWidget* Widget = new FPuzzleWidget{i, GridPosition};
+        FPuzzleWidget* Widget = new FPuzzleWidget{Puzzle.get()->Id()};
         PuzzleWidgets_.emplace_back(Widget);
-        UpdateGridPosition(Widget, GridPosition);
+        UpdateGridPosition(Widget, Puzzle.get()->GridPosition());
         connect(Widget, &FPuzzleWidget::OnClick, this, &MainWindow::SwapWithEmptyPuzzle);
     }
-    ShufflePuzzleWidgets();
 }
 
 void MainWindow::UpdateGridPosition(FPuzzleWidget* Widget, const FGridPosition &Position)
 {
-    Widget->SetGridPosition(Position);
     if(PuzzleGrid_->itemAtPosition(Position.Row, Position.Column))
     {
         PuzzleGrid_->removeWidget(Widget);
@@ -47,65 +55,24 @@ void MainWindow::UpdateGridPosition(FPuzzleWidget* Widget, const FGridPosition &
     PuzzleGrid_->addWidget(Widget, Position.Row, Position.Column);
 }
 
-void MainWindow::ShufflePuzzleWidgets()
-{
-    std::vector<int> idx(PuzzleNumber);
-    std::iota(idx.begin(), idx.end(), 0);
-    std::random_shuffle(idx.begin(),idx.end());
-    for (int i = 0; i < PuzzleNumber; ++i)
-    {
-        UpdateGridPosition(PuzzleWidgets_[i].get(), IndexToGridPosition(idx[i]));
-    }
-}
-
 void MainWindow::SwapWithEmptyPuzzle(int WidgetId)
 {
-    if(bWin)
-    {
-        return;
-    }
     FPuzzleWidget* Widget = PuzzleWidgets_[WidgetId].get();
-    if(CanSwapWithEmptyPuzzle(Widget->GridPosition()))
+    auto GridPos = Game_.SwapWithEmptyPuzzle(WidgetId);
+    if(GridPos != nullptr)
     {
-        Widget->SwapGridPosition(EmptyPuzzlePosition_);
-        EmptyPuzzleIndex = GridPositionToIndex(EmptyPuzzlePosition_);
-        UpdateGridPosition(Widget, Widget->GridPosition());
+        UpdateGridPosition(Widget, *GridPos);
     }
-    bWin = CheckWin();
-}
 
-bool MainWindow::CanSwapWithEmptyPuzzle(const FGridPosition &WidgetPosition)
-{
-    const int rowDiff = abs(WidgetPosition.Row - EmptyPuzzlePosition_.Row);
-    const int colDiff = abs(WidgetPosition.Column - EmptyPuzzlePosition_.Column);
-    const bool bLeftRight = WidgetPosition.Row == EmptyPuzzlePosition_.Row && colDiff == 1;
-    const bool bTopBottom = WidgetPosition.Column == EmptyPuzzlePosition_.Column && rowDiff == 1;
-
-    return bLeftRight || bTopBottom;
-}
-
-FGridPosition MainWindow::IndexToGridPosition(int index)
-{
-    return index < EmptyPuzzleIndex ?
-           FGridPosition{index / GridSize, index % GridSize} :
-           FGridPosition{(index + 1) / GridSize, (index + 1) % GridSize};
-}
-
-int MainWindow::GridPositionToIndex(const FGridPosition &Position)
-{
-    return Position.Row * GridSize + Position.Column;
-}
-
-bool MainWindow::CheckWin()
-{
-    for (auto& Widget : PuzzleWidgets_)
+    if(Game_.bWin)
     {
-        if(GridPositionToIndex(Widget.get()->GridPosition()) != Widget.get()->Id())
-        {
-            return false;
-        }
+        FWinDialog* WinDialog =  new FWinDialog();
+        WinDialog->show();
     }
+}
+
+void MainWindow::ShowWinDialog()
+{
     FWinDialog* WinDialog =  new FWinDialog();
     WinDialog->show();
-    return true;
 }

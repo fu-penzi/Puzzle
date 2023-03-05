@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "puzzlewidget.h"
+#include "game/game.h"
 
 #include <QGridLayout>
 #include <QMainWindow>
@@ -21,14 +22,8 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-public:
-    constexpr static int GridSize{2};
-    constexpr static int PuzzleNumber{GridSize * GridSize - 1};
-
 private:
-    int EmptyPuzzleIndex;
-    bool bWin;
-    FGridPosition EmptyPuzzlePosition_;
+    FGame Game_;
     Ui::MainWindow *Ui_;
     FPuzzleWidgets PuzzleWidgets_;
     QGridLayout *PuzzleGrid_;
@@ -38,14 +33,11 @@ public:
     ~MainWindow();
 
 private:
+    void NewGame(FDifficulty Difficulty);
     void InitPuzzleWidgets();
     void UpdateGridPosition(FPuzzleWidget* Widget, const FGridPosition& Position);
-    void ShufflePuzzleWidgets();
     void SwapWithEmptyPuzzle(int WidgetId);
-    bool CanSwapWithEmptyPuzzle(const FGridPosition& Position);
-    FGridPosition IndexToGridPosition(int index);
-    int GridPositionToIndex(const FGridPosition& Position);
-    bool CheckWin();
+    void ShowWinDialog();
 };
 
 #endif // MAINWINDOW_H
