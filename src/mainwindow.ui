@@ -65,24 +65,21 @@
      <height>25</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuPuzzle">
+   <widget class="QMenu" name="game">
     <property name="title">
-     <string>New game</string>
+     <string>Game</string>
     </property>
    </widget>
-   <widget class="QMenu" name="menuDifficulty">
+   <widget class="QMenu" name="difficulty">
     <property name="title">
      <string>Difficulty</string>
     </property>
-    <addaction name="actionEasy"/>
-    <addaction name="actionMedium"/>
-    <addaction name="actionHard"/>
    </widget>
-   <addaction name="menuPuzzle"/>
-   <addaction name="menuDifficulty"/>
+   <addaction name="game"/>
+   <addaction name="difficulty"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionEasy">
+  <action name="Easy">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -90,7 +87,7 @@
     <string>Easy</string>
    </property>
   </action>
-  <action name="actionMedium">
+  <action name="Medium">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -98,12 +95,17 @@
     <string>Medium</string>
    </property>
   </action>
-  <action name="actionHard">
+  <action name="Hard">
    <property name="checkable">
     <bool>true</bool>
    </property>
    <property name="text">
     <string>Hard</string>
+   </property>
+  </action>
+  <action name="actionNewGame">
+   <property name="text">
+    <string>New game</string>
    </property>
   </action>
  </widget>

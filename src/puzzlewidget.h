@@ -9,6 +9,7 @@ class FPuzzleWidget : public QPushButton
 
 public:
     explicit FPuzzleWidget(int Id, QWidget *Parent = nullptr);
+
     int Id() const;
 
 private:

@@ -26,6 +26,8 @@ set(PROJECT_SOURCES
         src/game/game.cpp
         src/game/puzzle.h
         src/game/puzzle.cpp
+        src/game/gameconfig.h
+        src/game/gameconfig.cpp
         images.qrc
 )
 

@@ -7,19 +7,16 @@
 
 FGame::FGame(FDifficulty Difficulty)
     : bWin{false}
+    , GameConfig{Difficulty}
 {
-    const int GridSize = 3;
-    GameConfig = {GridSize, GridSize * GridSize - 1, 100};
-
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<> distr(0, GameConfig.PuzzleNumber);
+    std::uniform_int_distribution<> distr(0, GameConfig.PuzzleNumber());
     EmptyPuzzleIndex_ = distr(gen);
-    EmptyPuzzlePosition_ = {EmptyPuzzleIndex_ / GameConfig.GridSize,
-                            EmptyPuzzleIndex_ % GameConfig.GridSize
+    EmptyPuzzlePosition_ = {EmptyPuzzleIndex_ / GameConfig.GridSize(),
+                            EmptyPuzzleIndex_ % GameConfig.GridSize()
                            };
 
-    PuzzleVector.reserve(GameConfig.PuzzleNumber);
     InitPuzzle();
 }
 
@@ -29,13 +26,14 @@ FGame::~FGame()
 
 void FGame::InitPuzzle()
 {
-    std::vector<int> idx(GameConfig.PuzzleNumber);
+    PuzzleVector.reserve(GameConfig.PuzzleNumber());
+
+    std::vector<int> idx(GameConfig.PuzzleNumber());
     std::iota(idx.begin(), idx.end(), 0);
     std::random_shuffle(idx.begin(),idx.end());
-    for (int i = 0; i < GameConfig.PuzzleNumber; ++i)
+    for (int i = 0; i < GameConfig.PuzzleNumber(); ++i)
     {
-        FPuzzle* Puzzle = new FPuzzle{i, IndexToGridPosition(idx[i])};
-        PuzzleVector.emplace_back(Puzzle);
+        PuzzleVector.emplace_back(i, IndexToGridPosition(idx[i]));
     }
 }
 
@@ -45,7 +43,7 @@ const FGridPosition* FGame::SwapWithEmptyPuzzle(int WidgetId)
     {
         return nullptr;
     }
-    FPuzzle* Widget = PuzzleVector[WidgetId].get();
+    FPuzzle* Widget = &PuzzleVector[WidgetId];
     if(CanSwapWithEmptyPuzzle(Widget->GridPosition()))
     {
         Widget->SwapGridPosition(EmptyPuzzlePosition_);
@@ -70,22 +68,22 @@ bool FGame::CanSwapWithEmptyPuzzle(const FGridPosition &WidgetPosition)
 FGridPosition FGame::IndexToGridPosition(int index)
 {
     return index < EmptyPuzzleIndex_ ?
-           FGridPosition{index / GameConfig.GridSize,
-                         index % GameConfig.GridSize} :
-           FGridPosition{(index + 1) / GameConfig.GridSize,
-                         (index + 1) % GameConfig.GridSize};
+           FGridPosition{index / GameConfig.GridSize(),
+                         index % GameConfig.GridSize()} :
+           FGridPosition{(index + 1) / GameConfig.GridSize(),
+                         (index + 1) % GameConfig.GridSize()};
 }
 
 int FGame::GridPositionToIndex(const FGridPosition &Position)
 {
-    return Position.Row * GameConfig.GridSize + Position.Column;
+    return Position.Row * GameConfig.GridSize() + Position.Column;
 }
 
 bool FGame::CheckWin()
 {
     for (const auto& Widget : PuzzleVector)
     {
-        if(GridPositionToIndex(Widget.get()->GridPosition()) != Widget.get()->Id())
+        if(GridPositionToIndex(Widget.GridPosition()) != Widget.Id())
         {
             return false;
         }

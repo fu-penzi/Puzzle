@@ -5,7 +5,7 @@
 #include <iostream>
 
 FPuzzleWidget::FPuzzleWidget(int Id, QWidget *Parent)
-    : QPushButton{*new QString(std::to_string(Id).c_str()), Parent}
+    : QPushButton{QString::fromStdString(std::to_string(Id).c_str()), Parent}
     , Id_{Id}
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
