@@ -1,19 +1,19 @@
 #include "gameconfig.h"
 
-FGameConfig::FGameConfig(FDifficulty Difficulty):
+FGameConfig::FGameConfig(EDifficulty Difficulty):
     Difficulty_{Difficulty}
 {
     switch (Difficulty)
     {
-    case FDifficulty::Easy:
-        GridSize_ = 3;
+    case EDifficulty::Easy:
+        GridSize_ = 2;
         TimeLimit_ = 120;
         break;
-    case FDifficulty::Medium:
+    case EDifficulty::Medium:
         GridSize_ = 4;
         TimeLimit_ = 180;
         break;
-    case FDifficulty::Hard:
+    case EDifficulty::Hard:
         GridSize_ = 5;
         TimeLimit_ = 240;
         break;
@@ -22,7 +22,7 @@ FGameConfig::FGameConfig(FDifficulty Difficulty):
         TimeLimit_ = 120;
         break;
     }
-    PuzzleNumber_ = GridSize_ * GridSize_ - 1;
+    PuzzleNumber_ = GridSize_ * GridSize_;
 }
 
 int FGameConfig::PuzzleNumber() const
@@ -40,7 +40,7 @@ int FGameConfig::GridSize() const
     return GridSize_;
 }
 
-FDifficulty FGameConfig::Difficulty() const
+EDifficulty FGameConfig::Difficulty() const
 {
     return Difficulty_;
 }

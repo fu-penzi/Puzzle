@@ -4,37 +4,32 @@
 #include "gameconfig.h"
 #include "puzzle.h"
 
-#include <memory>
 #include <vector>
 
 class FGame
 {
 
 public:
-    int Score;
-    double Time;
     bool bWin;
     FGameConfig GameConfig;
     std::vector<FPuzzle> PuzzleVector;
 
-private:
-    FGridPosition EmptyPuzzlePosition_;
-    int EmptyPuzzleIndex_;
-
-
 public:
-    FGame(FDifficulty Difficulty);
-    ~FGame();
+    FGame(EDifficulty Difficulty);
+    virtual ~FGame();
 
-    const FGridPosition* SwapWithEmptyPuzzle(int WidgetId);
+    virtual void OnPuzzleClick(int WidgetId) = 0;
+
+protected:
+    void SwapPuzzlePositions(FPuzzle& A, FPuzzle& B);
+    FGridPosition IndexToGridPosition(int index);
+    bool CheckWin();
+    std::vector<int> GetShuffledIdxArray();
+
+    virtual void InitPuzzle() = 0;
 
 private:
-    void InitPuzzle();
-    void ShufflePuzzleWidgets();
-    bool CanSwapWithEmptyPuzzle(const FGridPosition& Position);
-    FGridPosition IndexToGridPosition(int index);
     int GridPositionToIndex(const FGridPosition& Position);
-    bool CheckWin();
 };
 
 #endif // FGAME_H

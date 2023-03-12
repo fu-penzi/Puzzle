@@ -4,7 +4,14 @@
 #include <map>
 #include <string>
 
-enum class FDifficulty
+enum class EMode
+{
+    FreeSwap,
+    EmptySwap,
+    Default = EmptySwap
+};
+
+enum class EDifficulty
 {
     Easy,
     Medium,
@@ -18,15 +25,15 @@ private:
     int GridSize_;
     int PuzzleNumber_;
     double TimeLimit_;
-    FDifficulty Difficulty_;
+    EDifficulty Difficulty_;
 
 public:
-    FGameConfig(FDifficulty Difficulty);
+    FGameConfig(EDifficulty Difficulty);
 
     int GridSize() const;
     int PuzzleNumber() const;
     double TimeLimit() const;
-    FDifficulty Difficulty() const;
+    EDifficulty Difficulty() const;
 };
 
 #endif // GAMECONFIG_H

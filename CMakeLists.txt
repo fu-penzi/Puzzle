@@ -28,6 +28,10 @@ set(PROJECT_SOURCES
         src/game/puzzle.cpp
         src/game/gameconfig.h
         src/game/gameconfig.cpp
+        src/game/gamefreeswap.h
+        src/game/gamefreeswap.cpp
+        src/game/gameemptyswap.h
+        src/game/gameemptyswap.cpp
         images.qrc
 )
 

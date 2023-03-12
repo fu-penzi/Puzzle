@@ -52,7 +52,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Score: 0</string>
+     <string>Moves: 0</string>
     </property>
    </widget>
   </widget>
@@ -75,8 +75,14 @@
      <string>Difficulty</string>
     </property>
    </widget>
+   <widget class="QMenu" name="gameMode">
+    <property name="title">
+     <string>Game mode</string>
+    </property>
+   </widget>
    <addaction name="game"/>
    <addaction name="difficulty"/>
+   <addaction name="gameMode"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="Easy">

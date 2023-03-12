@@ -1,4 +1,6 @@
 #include "mainwindow.h"
+#include "game/gameemptyswap.h"
+#include "game/gamefreeswap.h"
 #include "ui_mainwindow.h"
 #include "windialog.h"
 
@@ -9,8 +11,6 @@
 MainWindow::MainWindow(QWidget *Parent)
     : QMainWindow(Parent)
     , Ui_{new Ui::MainWindow}
-, PuzzleGrid_{}
-, Difficulty{FDifficulty::Default}
 {
     Ui_->setupUi(this);
 
@@ -33,64 +33,86 @@ MainWindow::~MainWindow()
 void MainWindow::InitActions()
 {
     QMenuBar* MenuBar = findChild<QMenuBar*>("menubar");
-    QMenu* GameMenu = MenuBar->findChild<QMenu *>("game");
-    QMenu* DifficultyMenu = MenuBar->findChild<QMenu *>("difficulty");
+    QMenu* GameMenu = MenuBar->findChild<QMenu*>("game");
+    QMenu* DifficultyMenu = MenuBar->findChild<QMenu*>("difficulty");
+    QMenu* GameModeMenu = MenuBar->findChild<QMenu*>("gameMode");
 
-    NewGame_ = new QAction("New game", GameMenu);
-    connect(NewGame_, &QAction::triggered, this, [&]()
+    NewGame_.setParent(GameMenu);
+    connect(&NewGame_, &QAction::triggered, this, [&]()
     {
-        NewGame(Difficulty);
+        NewGame();
     });
-    GameMenu->addAction(NewGame_);
+    GameMenu->addAction(&NewGame_);
 
-    DifficultyActions_ = new QActionGroup(DifficultyMenu);
-    DifficultyActions_->setExclusive(true);
+    const QList<QAction*> DifficultyActionList = {&Easy_, &Medium_, &Hard_};
+    constexpr std::array<EDifficulty, 3> Difficulties{EDifficulty::Easy, EDifficulty::Medium, EDifficulty::Hard};
+    InitActionsHandler(DifficultyActionList, Difficulties, Difficulty);
+    InitActionGroup(DifficultyActionList, DifficultyMenu, DifficultyActionGroup_);
 
-    auto InitDifficultyAction = [&](QAction* Action, QString Name, FDifficulty ActionDifficulty)
+    const QList<QAction*> GameActionList = {&FreeSwap_, &EmptySwap_};
+    constexpr std::array<EMode, 2> Modes{EMode::FreeSwap, EMode::EmptySwap};
+    InitActionsHandler(GameActionList, Modes, GameMode);
+    InitActionGroup(GameActionList, GameModeMenu, GameModeActionGroup_);
+
+    NewGame();
+}
+
+void MainWindow::InitActionGroup(QList<QAction*> Actions, QMenu* Menu, QActionGroup& ActionGroup)
+{
+    ActionGroup.setParent(Menu);
+    ActionGroup.setExclusive(true);
+    Menu->addActions(Actions);
+    for (auto& Action : Actions)
     {
-        Action = new QAction(Name, DifficultyActions_);
+        ActionGroup.addAction(Action);
         Action->setCheckable(true);
-        connect(Action, &QAction::triggered, this, [&, ActionDifficulty]()
-        {
-            NewGame(ActionDifficulty);
-            Difficulty = ActionDifficulty;
-        });
-
-        DifficultyMenu->addAction(Action);
-        DifficultyActions_->addAction(Action);
-
-        if(ActionDifficulty == FDifficulty::Default)
-        {
-            Action->setChecked(true);
-            Action->trigger();
-        }
-    };
-
-    InitDifficultyAction(Easy_, "Easy", FDifficulty::Easy);
-    InitDifficultyAction(Medium_, "Medium", FDifficulty::Medium);
-    InitDifficultyAction(Hard_, "Hard", FDifficulty::Hard);
+    }
 }
 
 void MainWindow::InitPuzzleWidgets()
 {
     for (auto& Puzzle: Game_.get()->PuzzleVector)
     {
+        if(Puzzle.PuzzleType() == EPuzzleType::EMPTY)
+        {
+            continue;
+        }
         auto Widget = std::make_shared<FPuzzleWidget>(Puzzle.Id());
         PuzzleWidgets_.push_back(Widget);
-        UpdateGridPosition(Widget.get(), Puzzle.GridPosition());
         connect(Widget.get(), &FPuzzleWidget::OnClick, this, &MainWindow::SwapWithEmptyPuzzle);
     }
+    UpdateGrid();
 }
 
-void MainWindow::NewGame(FDifficulty Difficulty)
+void MainWindow::NewGame()
 {
-    Game_ = std::make_unique<FGame>(Difficulty);
+    if(GameMode == EMode::FreeSwap)
+    {
+        Game_ = std::make_unique<FGameFreeSwap>(Difficulty);
+    }
+    else
+    {
+        Game_ = std::make_unique<FGameEmptySwap>(Difficulty);
+    }
     PuzzleWidgets_.clear();
     PuzzleWidgets_.reserve(Game_.get()->GameConfig.PuzzleNumber());
     InitPuzzleWidgets();
 }
 
-void MainWindow::UpdateGridPosition(FPuzzleWidget* Widget, const FGridPosition &Position)
+void MainWindow::UpdateGrid()
+{
+    auto PuzzleVector = Game_.get()->PuzzleVector;
+    for(int i = 0; i < PuzzleVector.size(); ++i)
+    {
+        if(PuzzleVector[i].PuzzleType() == EPuzzleType::EMPTY)
+        {
+            continue;
+        }
+        UpdateGridPosition(PuzzleWidgets_[i].get(), PuzzleVector[i].GridPosition());
+    }
+}
+
+void MainWindow::UpdateGridPosition(FPuzzleWidget* Widget, const FGridPosition& Position)
 {
     if(PuzzleGrid_->itemAtPosition(Position.Row, Position.Column))
     {
@@ -101,12 +123,8 @@ void MainWindow::UpdateGridPosition(FPuzzleWidget* Widget, const FGridPosition &
 
 void MainWindow::SwapWithEmptyPuzzle(int WidgetId)
 {
-    FPuzzleWidget* Widget = PuzzleWidgets_[WidgetId].get();
-    auto GridPos = Game_.get()->SwapWithEmptyPuzzle(WidgetId);
-    if(GridPos != nullptr)
-    {
-        UpdateGridPosition(Widget, *GridPos);
-    }
+    Game_.get()->OnPuzzleClick(WidgetId);
+    UpdateGrid();
 
     if(Game_.get()->bWin)
     {

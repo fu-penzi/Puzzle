@@ -8,6 +8,7 @@
 #include <QGridLayout>
 #include <QMainWindow>
 #include <QtWidgets>
+#include <iostream>
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -27,15 +28,22 @@ private:
     std::unique_ptr<FGame> Game_;
     Ui::MainWindow *Ui_;
     FPuzzleWidgets PuzzleWidgets_;
-    QGridLayout *PuzzleGrid_;
+    QGridLayout *PuzzleGrid_{};
     FWinDialog WinDialog_;
-    FDifficulty Difficulty;
-    QAction* NewGame_;
 
-    QActionGroup* DifficultyActions_;
-    QAction* Easy_;
-    QAction* Medium_;
-    QAction* Hard_;
+    EDifficulty Difficulty{EDifficulty::Default};
+    EMode GameMode{EMode::Default};
+
+    QAction NewGame_{"New game"};
+
+    QActionGroup DifficultyActionGroup_{nullptr};
+    QAction Easy_{"Easy"};
+    QAction Medium_{"Medium"};
+    QAction Hard_{"Hard"};
+
+    QActionGroup GameModeActionGroup_{nullptr};
+    QAction FreeSwap_{"Free swapping"};
+    QAction EmptySwap_{"Empty tile swapping"};
 
 public:
     MainWindow(QWidget *Parent = nullptr);
@@ -43,12 +51,31 @@ public:
 
 private:
     void InitActions();
-    void InitDifficultyAction();
+    void InitActionGroup(QList<QAction*> Actions, QMenu* Menu, QActionGroup& ActionGroup);
     void InitPuzzleWidgets();
-    void NewGame(FDifficulty Difficulty);
+    void NewGame();
+    void UpdateGrid();
     void UpdateGridPosition(FPuzzleWidget* Widget, const FGridPosition& Position);
     void SwapWithEmptyPuzzle(int WidgetId);
     void ShowWinDialog();
+
+    template<typename E, std::size_t N>
+    void InitActionsHandler(QList<QAction*> Actions, std::array<E, N> Enum, E& ToSet)
+    {
+        for(int i = 0; i < N; ++i)
+        {
+            connect(Actions[i], &QAction::triggered, this, [&, i, Enum]()
+            {
+                ToSet = Enum[i];
+                NewGame();
+            });
+
+            if(Enum[i] == E::Default)
+            {
+                Actions[i]->setChecked(true);
+            }
+        }
+    }
 };
 
 #endif // MAINWINDOW_H
