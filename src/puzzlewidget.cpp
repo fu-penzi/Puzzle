@@ -9,6 +9,7 @@ FPuzzleWidget::FPuzzleWidget(int Id, QWidget *Parent)
     , Id_{Id}
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    setStyleSheet("QPushButton{font-size: 26px;}");
     connect(this, &QPushButton::clicked, this, [&]()
     {
         emit OnClick(Id_);
