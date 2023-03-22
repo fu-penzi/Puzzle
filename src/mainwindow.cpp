@@ -1,6 +1,4 @@
 #include "mainwindow.h"
-#include "game/gameemptyswap.h"
-#include "game/gamefreeswap.h"
 #include "ui_mainwindow.h"
 #include "windialog.h"
 
@@ -71,7 +69,7 @@ void MainWindow::InitActionGroup(QList<QAction*> Actions, QMenu* Menu, QActionGr
 
 void MainWindow::InitPuzzleWidgets()
 {
-    for (auto& Puzzle: Game_.get()->PuzzleVector)
+    for (auto& Puzzle: Player_.CurrentGame.get()->PuzzleVector)
     {
         if(Puzzle.PuzzleType() == EPuzzleType::EMPTY)
         {
@@ -86,22 +84,15 @@ void MainWindow::InitPuzzleWidgets()
 
 void MainWindow::NewGame()
 {
-    if(GameMode == EMode::FreeSwap)
-    {
-        Game_ = std::make_unique<FGameFreeSwap>(Difficulty);
-    }
-    else
-    {
-        Game_ = std::make_unique<FGameEmptySwap>(Difficulty);
-    }
+    Player_.NewGame(Difficulty, GameMode);
     PuzzleWidgets_.clear();
-    PuzzleWidgets_.reserve(Game_.get()->GameConfig.PuzzleNumber());
+    PuzzleWidgets_.reserve(Player_.CurrentGame.get()->GameConfig.PuzzleNumber());
     InitPuzzleWidgets();
 }
 
 void MainWindow::UpdateGrid()
 {
-    auto PuzzleVector = Game_.get()->PuzzleVector;
+    auto PuzzleVector = Player_.CurrentGame.get()->PuzzleVector;
     for(int i = 0; i < PuzzleVector.size(); ++i)
     {
         if(PuzzleVector[i].PuzzleType() == EPuzzleType::EMPTY)
@@ -123,10 +114,10 @@ void MainWindow::UpdateGridPosition(FPuzzleWidget* Widget, const FGridPosition& 
 
 void MainWindow::SwapWithEmptyPuzzle(int WidgetId)
 {
-    Game_.get()->OnPuzzleClick(WidgetId);
+    Player_.CurrentGame.get()->OnPuzzleClick(WidgetId);
     UpdateGrid();
 
-    if(Game_.get()->bWin)
+    if(Player_.CurrentGame.get()->bWin)
     {
         ShowWinDialog();
     }

@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "game/player.h"
 #include "puzzlewidget.h"
 #include "game/game.h"
 #include "windialog.h"
@@ -25,7 +26,8 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 private:
-    std::unique_ptr<FGame> Game_;
+    FPlayer Player_;
+
     Ui::MainWindow *Ui_;
     FPuzzleWidgets PuzzleWidgets_;
     QGridLayout *PuzzleGrid_{};

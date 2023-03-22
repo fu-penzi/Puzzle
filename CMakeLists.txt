@@ -32,6 +32,8 @@ set(PROJECT_SOURCES
         src/game/gamefreeswap.cpp
         src/game/gameemptyswap.h
         src/game/gameemptyswap.cpp
+        src/game/player.h
+        src/game/player.cpp
         images.qrc
 )
 
