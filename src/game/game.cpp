@@ -4,7 +4,7 @@
 #include <iostream>
 #include <numeric>
 #include <random>
-
+#include <QtWidgets>
 
 FGame::FGame(int GameId, EDifficulty Difficulty, EMode Mode)
     : GameState_{GameId}
@@ -25,6 +25,11 @@ FGame::~FGame()
 {
 }
 
+void FGame::UpdateTimer()
+{
+    GameState_.Time -= 1;
+}
+
 int FGame::GameId() const
 {
     return GameState_.GameId;
@@ -40,7 +45,7 @@ bool FGame::bWin() const
     return GameState_.bWin;
 }
 
-double FGame::Time() const
+int FGame::Time() const
 {
     return GameState_.Time;
 }

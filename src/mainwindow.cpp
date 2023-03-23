@@ -35,6 +35,14 @@ MainWindow::MainWindow(QWidget *Parent)
         PuzzleWidgets_.reserve(Player_.CurrentGame->GameConfig().PuzzleNumber());
         InitPuzzleWidgets();
     });
+
+    QTimer* Timer = new QTimer(this);
+    connect(Timer, &QTimer::timeout, this, [&]()
+    {
+        Player_.CurrentGame->UpdateTimer();
+        UpdateLabels();
+    });
+    Timer->start(1000);
 }
 
 MainWindow::~MainWindow()
@@ -163,6 +171,9 @@ void MainWindow::UpdateLabels()
 
     QString MovesLabelText = QString::fromStdString("Moves: " + std::to_string(Player_.CurrentGame->Moves()));
     MovesLabel_->setText(MovesLabelText);
+
+    QString TimeLabelText = QString::fromStdString("Time: " + std::to_string(Player_.CurrentGame->Time()) + "s");
+    TimeLabel_->setText(TimeLabelText);
 }
 
 void MainWindow::UpdateCheckedActions()

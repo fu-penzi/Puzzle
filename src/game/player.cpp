@@ -62,7 +62,7 @@ void FPlayer::SaveGame()
     File.write((char*)&CurrentGame->GameState().GameId, sizeof(int));
     File.write((char*)&CurrentGame->GameState().Moves, sizeof(int));
     File.write((char*)&CurrentGame->GameState().bWin, sizeof(bool));
-    File.write((char*)&CurrentGame->GameState().Time, sizeof(double));
+    File.write((char*)&CurrentGame->GameState().Time, sizeof(int));
     for (auto& Puzzle : CurrentGame->GameState().PuzzleVector)
     {
         File.write((char*)&Puzzle, sizeof(FPuzzle));
@@ -88,7 +88,7 @@ void FPlayer::LoadGame(std::string SaveName)
     File.read((char*)&GameState.GameId, sizeof(int));
     File.read((char*)&GameState.Moves, sizeof(int));
     File.read((char*)&GameState.bWin, sizeof(bool));
-    File.read((char*)&GameState.Time, sizeof(double));
+    File.read((char*)&GameState.Time, sizeof(int));
     for (int var = 0; var < GameConfig.PuzzleNumber(); ++var)
     {
         FPuzzle Puzzle;

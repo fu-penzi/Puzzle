@@ -69,6 +69,8 @@ private:
     void ShowWinDialog();
     void UpdateLabels();
     void UpdateCheckedActions();
+    void UpdateTimer();
+
 
     template<typename E, std::size_t N>
     void InitActionsHandler(QList<QAction*> Actions, std::array<E, N> Enum, E& ToSet)

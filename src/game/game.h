@@ -11,7 +11,7 @@ struct FGameState
     int GameId{};
     int Moves{};
     bool bWin{};
-    double Time{};
+    int Time{};
     std::vector<FPuzzle> PuzzleVector{};
 };
 
@@ -25,10 +25,12 @@ public:
 
     virtual void OnPuzzleClick(int WidgetId) = 0;
 
+    void UpdateTimer();
+
     int GameId() const;
     int Moves() const;
     bool bWin() const;
-    double Time() const;
+    int Time() const;
     const std::vector<FPuzzle>& PuzzleVector() const;
     const FGameState& GameState() const;
     const FGameConfig& GameConfig() const;
