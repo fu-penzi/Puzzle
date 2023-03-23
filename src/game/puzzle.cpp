@@ -1,6 +1,11 @@
 #include "puzzle.h"
 #include <iostream>
 
+FPuzzle::FPuzzle()
+{
+
+}
+
 FPuzzle::FPuzzle(int Id, FGridPosition GridPosition, EPuzzleType PuzzleType)
     : Id_{Id}
     , GridPosition_{GridPosition}

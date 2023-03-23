@@ -26,14 +26,17 @@ private:
     int PuzzleNumber_;
     double TimeLimit_;
     EDifficulty Difficulty_;
+    EMode Mode_;
 
 public:
-    FGameConfig(EDifficulty Difficulty);
+    FGameConfig();
+    FGameConfig(EDifficulty Difficulty, EMode Mode);
 
     int GridSize() const;
     int PuzzleNumber() const;
     double TimeLimit() const;
     EDifficulty Difficulty() const;
+    EMode Mode() const;
 };
 
 #endif // GAMECONFIG_H

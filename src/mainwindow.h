@@ -2,8 +2,8 @@
 #define MAINWINDOW_H
 
 #include "game/player.h"
+#include "loadgamedialog.h"
 #include "puzzlewidget.h"
-#include "game/game.h"
 #include "windialog.h"
 
 #include <QGridLayout>
@@ -27,16 +27,18 @@ class MainWindow : public QMainWindow
 
 private:
     FPlayer Player_;
+    EDifficulty Difficulty_{EDifficulty::Default};
+    EMode GameMode_{EMode::Default};
 
     Ui::MainWindow *Ui_;
     FPuzzleWidgets PuzzleWidgets_;
     QGridLayout *PuzzleGrid_{};
     FWinDialog WinDialog_;
-
-    EDifficulty Difficulty{EDifficulty::Default};
-    EMode GameMode{EMode::Default};
+    FLoadGameDialog LoadGameDialog_;
 
     QAction NewGame_{"New game"};
+    QAction SaveGame_{"Save"};
+    QAction LoadGame_{"Load"};
 
     QActionGroup DifficultyActionGroup_{nullptr};
     QAction Easy_{"Easy"};
@@ -46,6 +48,11 @@ private:
     QActionGroup GameModeActionGroup_{nullptr};
     QAction FreeSwap_{"Free swapping"};
     QAction EmptySwap_{"Empty tile swapping"};
+
+
+    QLabel* GameIdLabel_;
+    QLabel* TimeLabel_;
+    QLabel* MovesLabel_;
 
 public:
     MainWindow(QWidget *Parent = nullptr);
@@ -60,6 +67,8 @@ private:
     void UpdateGridPosition(FPuzzleWidget* Widget, const FGridPosition& Position);
     void SwapWithEmptyPuzzle(int WidgetId);
     void ShowWinDialog();
+    void UpdateLabels();
+    void UpdateCheckedActions();
 
     template<typename E, std::size_t N>
     void InitActionsHandler(QList<QAction*> Actions, std::array<E, N> Enum, E& ToSet)

@@ -6,21 +6,37 @@
 
 #include <vector>
 
+struct FGameState
+{
+    int GameId{};
+    int Moves{};
+    bool bWin{};
+    double Time{};
+    std::vector<FPuzzle> PuzzleVector{};
+};
+
 class FGame
 {
 
 public:
-    bool bWin;
-    FGameConfig GameConfig;
-    std::vector<FPuzzle> PuzzleVector;
-
-public:
-    FGame(EDifficulty Difficulty);
+    FGame(int GameId, EDifficulty Difficulty, EMode Mode);
+    FGame(FGameState GameState, EDifficulty Difficulty, EMode Mode);
     virtual ~FGame();
 
     virtual void OnPuzzleClick(int WidgetId) = 0;
 
+    int GameId() const;
+    int Moves() const;
+    bool bWin() const;
+    double Time() const;
+    const std::vector<FPuzzle>& PuzzleVector() const;
+    const FGameState& GameState() const;
+    const FGameConfig& GameConfig() const;
+
 protected:
+    FGameState GameState_;
+    FGameConfig GameConfig_;
+
     void SwapPuzzlePositions(FPuzzle& A, FPuzzle& B);
     FGridPosition IndexToGridPosition(int index);
     bool CheckWin();

@@ -1,29 +1,34 @@
 #include "gameemptyswap.h"
 
-FGameEmptySwap::FGameEmptySwap(EDifficulty Difficulty)
-    :FGame{Difficulty}
+FGameEmptySwap::FGameEmptySwap(int GameId, EDifficulty Difficulty, EMode Mode)
+    :FGame{GameId, Difficulty, Mode}
 {
     FGameEmptySwap::InitPuzzle();
 }
 
-FPuzzle &FGameEmptySwap::GetEmptyPuzzle()
+FGameEmptySwap::FGameEmptySwap(FGameState GameState, EDifficulty Difficulty, EMode Mode)
+    :FGame{GameState, Difficulty, Mode}
 {
-    return PuzzleVector[GameConfig.PuzzleNumber() - 1];
+
 }
 
+FPuzzle& FGameEmptySwap::GetEmptyPuzzle()
+{
+    return GameState_.PuzzleVector[GameConfig_.PuzzleNumber() - 1];
+}
 
 void FGameEmptySwap::OnPuzzleClick(int WidgetId)
 {
-    if(bWin)
+    if(GameState_.bWin)
     {
         return;
     }
 
-    FPuzzle& Puzzle = PuzzleVector[WidgetId];
+    FPuzzle& Puzzle = GameState_.PuzzleVector[WidgetId];
     if(GetEmptyPuzzle().IsNeighbour(Puzzle))
     {
         SwapPuzzlePositions(Puzzle, GetEmptyPuzzle());
-        bWin = CheckWin();
+        GameState_.bWin = CheckWin();
     }
 }
 
@@ -32,7 +37,7 @@ void FGameEmptySwap::InitPuzzle()
     std::vector<int> ShuffledIdx = GetShuffledIdxArray();
     for (int i = 0; i < ShuffledIdx.size() - 1; ++i)
     {
-        PuzzleVector.emplace_back(i, IndexToGridPosition(ShuffledIdx[i]), EPuzzleType::STANDARD);
+        GameState_.PuzzleVector.emplace_back(i, IndexToGridPosition(ShuffledIdx[i]), EPuzzleType::STANDARD);
     }
-    PuzzleVector.emplace_back(ShuffledIdx.size() - 1, IndexToGridPosition(ShuffledIdx.back()), EPuzzleType::EMPTY);
+    GameState_.PuzzleVector.emplace_back(ShuffledIdx.size() - 1, IndexToGridPosition(ShuffledIdx.back()), EPuzzleType::EMPTY);
 }

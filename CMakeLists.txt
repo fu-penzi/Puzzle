@@ -34,6 +34,11 @@ set(PROJECT_SOURCES
         src/game/gameemptyswap.cpp
         src/game/player.h
         src/game/player.cpp
+        src/loadgamedialog.h
+        src/loadgamedialog.cpp
+        src/loadgamedialog.ui
+        src/game/score.h
+        src/game/score.cpp
         images.qrc
 )
 

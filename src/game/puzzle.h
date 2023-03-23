@@ -17,20 +17,20 @@ enum class EPuzzleType
 class FPuzzle
 {
 public:
+    FPuzzle();
     FPuzzle(int Id, FGridPosition GridPosition, EPuzzleType PuzzleType);
-    FGridPosition GridPosition_;
+    FGridPosition GridPosition_{};
+
     const FGridPosition& GridPosition() const;
     void SetGridPosition(const FGridPosition &NewGridPosition);
-
     int Id() const;
-
     EPuzzleType PuzzleType() const;
 
     bool IsNeighbour(const FPuzzle &Puzzle) const;
 
 private:
-    const int Id_;
-    const EPuzzleType PuzzleType_;
+    const int Id_{};
+    const EPuzzleType PuzzleType_{};
 
 };
 

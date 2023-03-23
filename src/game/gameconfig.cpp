@@ -1,7 +1,13 @@
 #include "gameconfig.h"
 
-FGameConfig::FGameConfig(EDifficulty Difficulty):
+FGameConfig::FGameConfig()
+{
+
+}
+
+FGameConfig::FGameConfig(EDifficulty Difficulty, EMode Mode):
     Difficulty_{Difficulty}
+    , Mode_{Mode}
 {
     switch (Difficulty)
     {
@@ -43,4 +49,10 @@ int FGameConfig::GridSize() const
 EDifficulty FGameConfig::Difficulty() const
 {
     return Difficulty_;
+}
+
+
+EMode FGameConfig::Mode() const
+{
+    return Mode_;
 }

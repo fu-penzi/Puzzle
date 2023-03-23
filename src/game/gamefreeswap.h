@@ -7,7 +7,8 @@
 class FGameFreeSwap : public FGame
 {
 public:
-    FGameFreeSwap(EDifficulty Difficulty);
+    FGameFreeSwap(int GameId, EDifficulty Difficulty, EMode Mode);
+    FGameFreeSwap(FGameState GameState, EDifficulty Difficulty, EMode Mode);
 
 private:
     int PrevClickedId_{-1};
