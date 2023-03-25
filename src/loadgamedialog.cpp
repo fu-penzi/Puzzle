@@ -7,13 +7,12 @@ FLoadGameDialog::FLoadGameDialog(QWidget *parent) :
     Ui(new Ui::LoadGameDialog)
 {
     Ui->setupUi(this);
-    SaveList = findChild<QListView*>("saveList");
 
     SaveListModel = new QStringListModel(this);
-    SaveList->setModel(SaveListModel);
-    SaveList->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    Ui->saveList->setModel(SaveListModel);
+    Ui->saveList->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
-    connect(SaveList, &QListView::doubleClicked, this, [&](const QModelIndex& index)
+    connect(Ui->saveList, &QListView::doubleClicked, this, [&](const QModelIndex& index)
     {
         emit OnSaveSelect(index.data().toString().toStdString());
         hide();

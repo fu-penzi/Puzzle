@@ -8,24 +8,24 @@
 
 struct FGameState
 {
-    int GameId{};
-    int Moves{};
-    bool bWin{};
-    int Time{};
-    std::vector<FPuzzle> PuzzleVector{};
+    int GameId;
+    int Moves;
+    bool bWin;
+    int Time;
+    std::vector<FPuzzle> PuzzleVector;
 };
 
 class FGame
 {
 
+protected:
+    FGameState GameState_{};
+    FGameConfig GameConfig_{};
+
 public:
     FGame(int GameId, EDifficulty Difficulty, EMode Mode);
     FGame(FGameState GameState, EDifficulty Difficulty, EMode Mode);
     virtual ~FGame();
-
-    virtual void OnPuzzleClick(int WidgetId) = 0;
-
-    void UpdateTimer();
 
     int GameId() const;
     int Moves() const;
@@ -35,15 +35,17 @@ public:
     const FGameState& GameState() const;
     const FGameConfig& GameConfig() const;
 
-protected:
-    FGameState GameState_;
-    FGameConfig GameConfig_;
+    virtual void OnPuzzleClick(int WidgetId) = 0;
+    void UpdateTimer();
+    bool IsFinished();
 
+    bool IsSaved() const;
+
+protected:
+    bool CheckWin();
     void SwapPuzzlePositions(FPuzzle& A, FPuzzle& B);
     FGridPosition IndexToGridPosition(int index);
-    bool CheckWin();
     std::vector<int> GetShuffledIdxArray();
-
     virtual void InitPuzzle() = 0;
 
 private:

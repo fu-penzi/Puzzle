@@ -27,6 +27,10 @@ FGame::~FGame()
 
 void FGame::UpdateTimer()
 {
+    if(IsFinished())
+    {
+        return;
+    }
     GameState_.Time -= 1;
 }
 
@@ -67,6 +71,10 @@ const FGameConfig& FGame::GameConfig() const
 
 void FGame::SwapPuzzlePositions(FPuzzle& A, FPuzzle& B)
 {
+    if(IsFinished())
+    {
+        return;
+    }
     ++GameState_.Moves;
     FGridPosition APosition(A.GridPosition());
     A.SetGridPosition(B.GridPosition());
@@ -81,6 +89,11 @@ FGridPosition FGame::IndexToGridPosition(int index)
 int FGame::GridPositionToIndex(const FGridPosition& Position)
 {
     return Position.Row * GameConfig_.GridSize() + Position.Column;
+}
+
+bool FGame::IsFinished()
+{
+    return bWin() || Time() == 0;
 }
 
 bool FGame::CheckWin()

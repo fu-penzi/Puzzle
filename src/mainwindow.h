@@ -4,6 +4,7 @@
 #include "game/player.h"
 #include "loadgamedialog.h"
 #include "puzzlewidget.h"
+#include "scoredialog.h"
 #include "windialog.h"
 
 #include <QGridLayout>
@@ -29,30 +30,27 @@ private:
     FPlayer Player_;
     EDifficulty Difficulty_{EDifficulty::Default};
     EMode GameMode_{EMode::Default};
+    FPuzzleWidgets PuzzleWidgets_;
 
     Ui::MainWindow *Ui_;
-    FPuzzleWidgets PuzzleWidgets_;
-    QGridLayout *PuzzleGrid_{};
+
     FWinDialog WinDialog_;
     FLoadGameDialog LoadGameDialog_;
+    ScoreDialog ScoreDialog_;
 
-    QAction NewGame_{"New game"};
-    QAction SaveGame_{"Save"};
-    QAction LoadGame_{"Load"};
+    QAction NewGameAction_{"New game"};
+    QAction SaveGameAction_{"Save"};
+    QAction LoadGameAction_{"Load"};
+    QAction ScoreAction_{"Score"};
 
     QActionGroup DifficultyActionGroup_{nullptr};
-    QAction Easy_{"Easy"};
-    QAction Medium_{"Medium"};
-    QAction Hard_{"Hard"};
+    QAction EasyAction_{"Easy"};
+    QAction MediumAction_{"Medium"};
+    QAction HardAction_{"Hard"};
 
     QActionGroup GameModeActionGroup_{nullptr};
-    QAction FreeSwap_{"Free swapping"};
-    QAction EmptySwap_{"Empty tile swapping"};
-
-
-    QLabel* GameIdLabel_;
-    QLabel* TimeLabel_;
-    QLabel* MovesLabel_;
+    QAction FreeSwapAction_{"Free swapping"};
+    QAction EmptySwapAction_{"Empty tile swapping"};
 
 public:
     MainWindow(QWidget *Parent = nullptr);
@@ -67,6 +65,8 @@ private:
     void UpdateGridPosition(FPuzzleWidget* Widget, const FGridPosition& Position);
     void SwapWithEmptyPuzzle(int WidgetId);
     void ShowWinDialog();
+    void ShowLoadGameDialog();
+    void ShowScoreDialog();
     void UpdateLabels();
     void UpdateCheckedActions();
     void UpdateTimer();

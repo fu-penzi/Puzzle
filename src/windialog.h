@@ -14,15 +14,15 @@ QT_END_NAMESPACE
 class FWinDialog : public QDialog
 {
     Q_OBJECT
-public:
-    explicit FWinDialog(QWidget *parent = nullptr);
-    ~FWinDialog();
 
 private:
     Ui::WinDialog *Ui_;
 
-signals:
+public:
+    explicit FWinDialog(QWidget *parent = nullptr);
+    ~FWinDialog();
 
+    void Show(bool bWin);
 };
 
 #endif // WINDIALOG_H

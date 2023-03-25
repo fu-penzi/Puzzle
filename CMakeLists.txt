@@ -22,6 +22,12 @@ set(PROJECT_SOURCES
         src/windialog.ui
         src/windialog.h
         src/windialog.cpp
+        src/loadgamedialog.h
+        src/loadgamedialog.cpp
+        src/loadgamedialog.ui
+        src/scoredialog.h
+        src/scoredialog.cpp
+        src/scoredialog.ui
         src/game/game.h
         src/game/game.cpp
         src/game/puzzle.h
@@ -34,11 +40,8 @@ set(PROJECT_SOURCES
         src/game/gameemptyswap.cpp
         src/game/player.h
         src/game/player.cpp
-        src/loadgamedialog.h
-        src/loadgamedialog.cpp
-        src/loadgamedialog.ui
-        src/game/score.h
-        src/game/score.cpp
+        src/game/playerscores.h
+        src/game/playerscores.cpp
         images.qrc
 )
 

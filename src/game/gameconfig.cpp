@@ -13,19 +13,19 @@ FGameConfig::FGameConfig(EDifficulty Difficulty, EMode Mode):
     {
     case EDifficulty::Easy:
         GridSize_ = 2;
-        TimeLimit_ = 120;
+        TimeLimit_ = 15;
         break;
     case EDifficulty::Medium:
         GridSize_ = 4;
-        TimeLimit_ = 180;
+        TimeLimit_ = 30;
         break;
     case EDifficulty::Hard:
         GridSize_ = 5;
-        TimeLimit_ = 240;
+        TimeLimit_ = 120;
         break;
     default:
-        GridSize_ = 3;
-        TimeLimit_ = 120;
+        GridSize_ = 2;
+        TimeLimit_ = 15;
         break;
     }
     PuzzleNumber_ = GridSize_ * GridSize_;

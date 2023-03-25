@@ -10,37 +10,28 @@
 
 FPlayer::FPlayer()
 {
-    mkdir(ProfilesDirPath.c_str());
-    mkdir(ProfilePath.c_str());
-    mkdir(SaveDirPath.c_str());
-
-    if(std::filesystem::exists(ScorePath))
-    {
-        std::ifstream ScoreFile;
-        ScoreFile.open(ScorePath, std::ios::in);
-        ScoreFile.seekg(0);
-        ScoreFile.read((char*)&Score, sizeof(Score));
-        ScoreFile.close();
-    }
+    mkdir(ProfilesDirPath_.c_str());
+    mkdir(ProfilePath_.c_str());
+    mkdir(SaveDirPath_.c_str());
     UpdateGameSaves();
 }
 
 void FPlayer::NewGame(EDifficulty Difficulty, EMode GameMode)
 {
-    ++Score.GamesPlayed;
+    Pause_ = false;
+    PlayerScores.AddStartedGame();
     if(CurrentGame)
     {
         SaveGame();
     }
-    UpdateScoreFile();
 
     if(GameMode == EMode::FreeSwap)
     {
-        CurrentGame = std::make_unique<FGameFreeSwap>(Score.GamesPlayed, Difficulty, GameMode);
+        CurrentGame = std::make_unique<FGameFreeSwap>(PlayerScores.GamesPlayed(), Difficulty, GameMode);
     }
     else
     {
-        CurrentGame = std::make_unique<FGameEmptySwap>(Score.GamesPlayed, Difficulty, GameMode);
+        CurrentGame = std::make_unique<FGameEmptySwap>(PlayerScores.GamesPlayed(), Difficulty, GameMode);
     }
 
     SaveGame();
@@ -55,8 +46,7 @@ void FPlayer::SaveGame()
 
     const std::string Filename{std::to_string(CurrentGame->GameId())};
     std::ofstream File;
-
-    File.open(SaveDirPath + "/" + Filename, std::ios::out | std::ofstream::trunc);
+    File.open(SaveDirPath_ + "/" + Filename, std::ios::out | std::ofstream::trunc);
     File.clear();
     File.write((char*)&CurrentGame->GameConfig(), sizeof(FGameConfig));
     File.write((char*)&CurrentGame->GameState().GameId, sizeof(int));
@@ -68,12 +58,19 @@ void FPlayer::SaveGame()
         File.write((char*)&Puzzle, sizeof(FPuzzle));
     }
     File.close();
-    UpdateScoreFile();
     UpdateGameSaves();
+}
+
+void FPlayer::FinishGame()
+{
+    RemoveSave(SaveDirPath_ + "/" + std::to_string(CurrentGame->GameId()));
+    PlayerScores.SaveScore(CurrentGame.get());
+    Pause_ = true;
 }
 
 void FPlayer::LoadGame(std::string SaveName)
 {
+    Pause_ = false;
     if(CurrentGame)
     {
         SaveGame();
@@ -82,7 +79,7 @@ void FPlayer::LoadGame(std::string SaveName)
     FGameState GameState;
 
     std::ifstream File;
-    File.open(SaveDirPath + "/" + SaveName, std::ios::in);
+    File.open(SaveDirPath_ + "/" + SaveName, std::ios::in);
     File.seekg(0);
     File.read((char*)&GameConfig, sizeof(FGameConfig));
     File.read((char*)&GameState.GameId, sizeof(int));
@@ -107,18 +104,15 @@ void FPlayer::LoadGame(std::string SaveName)
     }
 }
 
-void FPlayer::UpdateScoreFile()
+bool FPlayer::Pause() const
 {
-    std::ofstream ScoreFile;
-    ScoreFile.open(ScorePath, std::ios::out | std::ofstream::trunc);
-    ScoreFile.write((char*)&Score, sizeof(Score));
-    ScoreFile.close();
+    return Pause_;
 }
 
 void FPlayer::UpdateGameSaves()
 {
     GameSaves.clear();
-    std::filesystem::path Dir {SaveDirPath};
+    std::filesystem::path Dir {SaveDirPath_};
     for (auto& File : std::filesystem::directory_iterator(Dir))
     {
         GameSaves.emplace_back(std::filesystem::path(File.path()).filename().string());
@@ -127,4 +121,10 @@ void FPlayer::UpdateGameSaves()
     {
         return std::stoi(Save1) < std::stoi(Save2);
     });
+}
+
+void FPlayer::RemoveSave(std::string Filename)
+{
+    std::remove(Filename.c_str());
+    UpdateGameSaves();
 }

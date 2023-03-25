@@ -3,7 +3,7 @@
 
 
 #include "game.h"
-#include "score.h"
+#include "playerscores.h"
 
 #include <memory>
 #include <string>
@@ -14,24 +14,26 @@ class FPlayer
 public:
     FPlayer();
 
-    std::string Name{"Player"};
     std::unique_ptr<FGame> CurrentGame{};
-    FScore Score{};
+    FPlayerScores PlayerScores{"Profiles/Player/Score"};
     std::vector<std::string> GameSaves{};
 
     void NewGame(EDifficulty Difficulty, EMode GameMode);
     void SaveGame();
+    void FinishGame();
     void LoadGame(std::string SaveName);
 
+    bool Pause() const;
 
 private:
-    void UpdateScoreFile();
-    void UpdateGameSaves();
+    bool Pause_{};
 
-    const std::string ProfilesDirPath {"Profiles"};
-    const std::string ProfilePath {ProfilesDirPath + "/" + Name};
-    const std::string ScorePath {ProfilePath + "/Score"};
-    const std::string SaveDirPath {ProfilePath + "/Saves"};
+    const std::string ProfilesDirPath_ {"Profiles"};
+    const std::string ProfilePath_ {ProfilesDirPath_ + "/Player"};
+    const std::string SaveDirPath_ {ProfilePath_ + "/Saves"};
+
+    void UpdateGameSaves();
+    void RemoveSave(std::string Filename);
 };
 
 #endif // PLAYER_H

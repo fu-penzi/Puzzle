@@ -15,14 +15,13 @@ class FLoadGameDialog : public QDialog
     Q_OBJECT
 
 public:
-    QListView* SaveList;
     QStringListModel* SaveListModel;
     QString Save;
 
     explicit FLoadGameDialog(QWidget *parent = nullptr);
     ~FLoadGameDialog();
 
-    void SetGameSaves(const std::vector<std::string> &NewGameSaves);
+    void SetGameSaves(const std::vector<std::string>& NewGameSaves);
 
 private:
     Ui::LoadGameDialog *Ui;
