@@ -69,7 +69,8 @@
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -78,26 +79,7 @@
      <height>25</height>
     </rect>
    </property>
-   <widget class="QMenu" name="gameMenu">
-    <property name="title">
-     <string>Game</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="difficultyMenu">
-    <property name="title">
-     <string>Difficulty</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="gameModeMenu">
-    <property name="title">
-     <string>Game mode</string>
-    </property>
-   </widget>
-   <addaction name="gameMenu"/>
-   <addaction name="difficultyMenu"/>
-   <addaction name="gameModeMenu"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="Easy">
    <property name="checkable">
     <bool>true</bool>

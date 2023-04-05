@@ -19,9 +19,17 @@ enum class EDifficulty
     Default = Easy
 };
 
+template <size_t N>
+using FStringArray =  std::array<const std::string_view, N>;
+
 class FGameConfig
 {
 public:
+    int GridSize() const;
+    int PuzzleNumber() const;
+    double TimeLimit() const;
+    EDifficulty Difficulty() const;
+    EMode Mode() const;
 
 private:
     int GridSize_;
@@ -29,19 +37,12 @@ private:
     double TimeLimit_;
     EDifficulty Difficulty_;
     EMode Mode_;
-
-    constexpr static std::array<const std::string_view, 2> ModeStrings_ { "Free swap", "Empty tile swapping" };
-    constexpr static std::array<const std::string_view, 3> DifficultyStrings_ { "Easy", "Medium", "Hard" };
+    constexpr static FStringArray<2> ModeStrings_ { "Free swap", "Empty tile swapping" };
+    constexpr static FStringArray<3> DifficultyStrings_ { "Easy", "Medium", "Hard" };
 
 public:
     FGameConfig();
     FGameConfig(EDifficulty Difficulty, EMode Mode);
-
-    int GridSize() const;
-    int PuzzleNumber() const;
-    double TimeLimit() const;
-    EDifficulty Difficulty() const;
-    EMode Mode() const;
 
     static std::string ModeToString(EMode Mode)
     {

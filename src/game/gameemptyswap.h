@@ -6,6 +6,7 @@
 
 class FGameEmptySwap : public FGame
 {
+
 public:
     FGameEmptySwap(int GameId, EDifficulty Difficulty, EMode Mode);
     FGameEmptySwap(FGameState GameState, EDifficulty Difficulty, EMode Mode);

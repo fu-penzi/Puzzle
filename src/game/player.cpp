@@ -19,19 +19,19 @@ FPlayer::FPlayer()
 void FPlayer::NewGame(EDifficulty Difficulty, EMode GameMode)
 {
     Pause_ = false;
-    PlayerScores.AddStartedGame();
-    if(CurrentGame)
+    PlayerScores_.AddStartedGame();
+    if(CurrentGame_)
     {
         SaveGame();
     }
 
     if(GameMode == EMode::FreeSwap)
     {
-        CurrentGame = std::make_unique<FGameFreeSwap>(PlayerScores.GamesPlayed(), Difficulty, GameMode);
+        CurrentGame_ = std::make_unique<FGameFreeSwap>(PlayerScores_.GamesPlayed(), Difficulty, GameMode);
     }
     else
     {
-        CurrentGame = std::make_unique<FGameEmptySwap>(PlayerScores.GamesPlayed(), Difficulty, GameMode);
+        CurrentGame_ = std::make_unique<FGameEmptySwap>(PlayerScores_.GamesPlayed(), Difficulty, GameMode);
     }
 
     SaveGame();
@@ -39,21 +39,21 @@ void FPlayer::NewGame(EDifficulty Difficulty, EMode GameMode)
 
 void FPlayer::SaveGame()
 {
-    if(!CurrentGame)
+    if(!CurrentGame_)
     {
         return;
     }
 
-    const std::string Filename{std::to_string(CurrentGame->GameId())};
+    const std::string Filename{std::to_string(CurrentGame_->GameId())};
     std::ofstream File;
     File.open(SaveDirPath_ + "/" + Filename, std::ios::out | std::ofstream::trunc);
     File.clear();
-    File.write((char*)&CurrentGame->GameConfig(), sizeof(FGameConfig));
-    File.write((char*)&CurrentGame->GameState().GameId, sizeof(int));
-    File.write((char*)&CurrentGame->GameState().Moves, sizeof(int));
-    File.write((char*)&CurrentGame->GameState().bWin, sizeof(bool));
-    File.write((char*)&CurrentGame->GameState().Time, sizeof(int));
-    for (auto& Puzzle : CurrentGame->GameState().PuzzleVector)
+    File.write((char*)&CurrentGame_->GameConfig(), sizeof(FGameConfig));
+    File.write((char*)&CurrentGame_->GameState().GameId, sizeof(int));
+    File.write((char*)&CurrentGame_->GameState().Moves, sizeof(int));
+    File.write((char*)&CurrentGame_->GameState().bWin, sizeof(bool));
+    File.write((char*)&CurrentGame_->GameState().Time, sizeof(int));
+    for (auto& Puzzle : CurrentGame_->GameState().PuzzleVector)
     {
         File.write((char*)&Puzzle, sizeof(FPuzzle));
     }
@@ -63,15 +63,15 @@ void FPlayer::SaveGame()
 
 void FPlayer::FinishGame()
 {
-    RemoveSave(SaveDirPath_ + "/" + std::to_string(CurrentGame->GameId()));
-    PlayerScores.SaveScore(CurrentGame.get());
+    RemoveSave(SaveDirPath_ + "/" + std::to_string(CurrentGame_->GameId()));
+    PlayerScores_.SaveScore(CurrentGame_.get());
     Pause_ = true;
 }
 
 void FPlayer::LoadGame(std::string SaveName)
 {
     Pause_ = false;
-    if(CurrentGame)
+    if(CurrentGame_)
     {
         SaveGame();
     }
@@ -96,11 +96,11 @@ void FPlayer::LoadGame(std::string SaveName)
 
     if(GameConfig.Mode() == EMode::FreeSwap)
     {
-        CurrentGame = std::make_unique<FGameFreeSwap>(GameState, GameConfig.Difficulty(), GameConfig.Mode());
+        CurrentGame_ = std::make_unique<FGameFreeSwap>(GameState, GameConfig.Difficulty(), GameConfig.Mode());
     }
     else
     {
-        CurrentGame = std::make_unique<FGameEmptySwap>(GameState, GameConfig.Difficulty(), GameConfig.Mode());
+        CurrentGame_ = std::make_unique<FGameEmptySwap>(GameState, GameConfig.Difficulty(), GameConfig.Mode());
     }
 }
 
@@ -109,15 +109,30 @@ bool FPlayer::Pause() const
     return Pause_;
 }
 
+FGame* FPlayer::CurrentGame()
+{
+    return CurrentGame_.get();
+}
+
+const FPlayerScores& FPlayer::PlayerScores() const
+{
+    return PlayerScores_;
+}
+
+const std::vector<std::string>& FPlayer::GameSaves() const
+{
+    return GameSaves_;
+}
+
 void FPlayer::UpdateGameSaves()
 {
-    GameSaves.clear();
+    GameSaves_.clear();
     std::filesystem::path Dir {SaveDirPath_};
     for (auto& File : std::filesystem::directory_iterator(Dir))
     {
-        GameSaves.emplace_back(std::filesystem::path(File.path()).filename().string());
+        GameSaves_.emplace_back(std::filesystem::path(File.path()).filename().string());
     }
-    std::sort(GameSaves.begin(), GameSaves.end(), [](std::string Save1, std::string Save2)
+    std::sort(GameSaves_.begin(), GameSaves_.end(), [](std::string Save1, std::string Save2)
     {
         return std::stoi(Save1) < std::stoi(Save2);
     });

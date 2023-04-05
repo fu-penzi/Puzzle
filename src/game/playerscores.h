@@ -21,24 +21,25 @@ struct FScore
 class FPlayerScores
 {
 public:
-    FPlayerScores(std::string ScorePath);
-
     int GamesPlayed() const;
     int GamesWon() const;
     int GamesLost() const;
     const std::vector<FScore>& Scores() const;
-
-    void AddStartedGame();
-    void SaveScore(FGame* Game);
 
 private:
     int GamesPlayed_ = 0;
     int GamesWon_ = 0;
     int GamesLost_ = 0;
     std::vector<FScore> Scores_;
-
     const std::string ScorePath_;
 
+public:
+    FPlayerScores(std::string ScorePath);
+
+    void AddStartedGame();
+    void SaveScore(FGame* Game);
+
+private:
     void UpdateScoreFile();
     void LoadScoreFile();
 };

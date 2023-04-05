@@ -18,6 +18,15 @@ struct FGameState
 class FGame
 {
 
+public:
+    int GameId() const;
+    int Moves() const;
+    bool bWin() const;
+    int Time() const;
+    const std::vector<FPuzzle>& PuzzleVector() const;
+    const FGameState& GameState() const;
+    const FGameConfig& GameConfig() const;
+
 protected:
     FGameState GameState_{};
     FGameConfig GameConfig_{};
@@ -27,19 +36,9 @@ public:
     FGame(FGameState GameState, EDifficulty Difficulty, EMode Mode);
     virtual ~FGame();
 
-    int GameId() const;
-    int Moves() const;
-    bool bWin() const;
-    int Time() const;
-    const std::vector<FPuzzle>& PuzzleVector() const;
-    const FGameState& GameState() const;
-    const FGameConfig& GameConfig() const;
-
     virtual void OnPuzzleClick(int WidgetId) = 0;
     void UpdateTimer();
     bool IsFinished();
-
-    bool IsSaved() const;
 
 protected:
     bool CheckWin();

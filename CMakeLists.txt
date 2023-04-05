@@ -28,6 +28,8 @@ set(PROJECT_SOURCES
         src/scoredialog.h
         src/scoredialog.cpp
         src/scoredialog.ui
+        src/menu.h
+        src/menu.cpp
         src/game/game.h
         src/game/game.cpp
         src/game/puzzle.h
