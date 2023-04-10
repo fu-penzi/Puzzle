@@ -48,14 +48,14 @@ void FPlayer::SaveGame()
     std::ofstream File;
     File.open(SaveDirPath_ + "/" + Filename, std::ios::out | std::ofstream::trunc);
     File.clear();
-    File.write((char*)&CurrentGame_->GameConfig(), sizeof(FGameConfig));
-    File.write((char*)&CurrentGame_->GameState().GameId, sizeof(int));
-    File.write((char*)&CurrentGame_->GameState().Moves, sizeof(int));
-    File.write((char*)&CurrentGame_->GameState().bWin, sizeof(bool));
-    File.write((char*)&CurrentGame_->GameState().Time, sizeof(int));
+    File.write(reinterpret_cast<char*>(const_cast<FGameConfig*>(&CurrentGame_->GameConfig())), sizeof(FGameConfig));
+    File.write(reinterpret_cast<char*>(const_cast<int*>(&CurrentGame_->GameState().GameId)), sizeof(int));
+    File.write(reinterpret_cast<char*>(const_cast<int*>(&CurrentGame_->GameState().Moves)), sizeof(int));
+    File.write(reinterpret_cast<char*>(const_cast<bool*>(&CurrentGame_->GameState().bWin)), sizeof(bool));
+    File.write(reinterpret_cast<char*>(const_cast<int*>(&CurrentGame_->GameState().Time)), sizeof(int));
     for (auto& Puzzle : CurrentGame_->GameState().PuzzleVector)
     {
-        File.write((char*)&Puzzle, sizeof(FPuzzle));
+        File.write(reinterpret_cast<char*>(const_cast<FPuzzle*>(&Puzzle)), sizeof(FPuzzle));
     }
     File.close();
     UpdateGameSaves();
@@ -81,15 +81,15 @@ void FPlayer::LoadGame(std::string SaveName)
     std::ifstream File;
     File.open(SaveDirPath_ + "/" + SaveName, std::ios::in);
     File.seekg(0);
-    File.read((char*)&GameConfig, sizeof(FGameConfig));
-    File.read((char*)&GameState.GameId, sizeof(int));
-    File.read((char*)&GameState.Moves, sizeof(int));
-    File.read((char*)&GameState.bWin, sizeof(bool));
-    File.read((char*)&GameState.Time, sizeof(int));
+    File.read(reinterpret_cast<char*>(&GameConfig), sizeof(FGameConfig));
+    File.read(reinterpret_cast<char*>(&GameState.GameId), sizeof(int));
+    File.read(reinterpret_cast<char*>(&GameState.Moves), sizeof(int));
+    File.read(reinterpret_cast<char*>(&GameState.bWin), sizeof(bool));
+    File.read(reinterpret_cast<char*>(&GameState.Time), sizeof(int));
     for (int var = 0; var < GameConfig.PuzzleNumber(); ++var)
     {
         FPuzzle Puzzle;
-        File.read((char*)&Puzzle, sizeof(FPuzzle));
+        File.read(reinterpret_cast<char*>(&Puzzle), sizeof(FPuzzle));
         GameState.PuzzleVector.push_back(Puzzle);
     }
     File.close();

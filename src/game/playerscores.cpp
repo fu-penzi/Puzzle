@@ -65,12 +65,12 @@ void FPlayerScores::UpdateScoreFile()
 {
     std::ofstream ScoreFile;
     ScoreFile.open(ScorePath_, std::ios::out | std::ofstream::trunc);
-    ScoreFile.write((char*)&GamesPlayed_, sizeof(GamesPlayed_));
-    ScoreFile.write((char*)&GamesWon_, sizeof(GamesWon_));
-    ScoreFile.write((char*)&GamesLost_, sizeof(GamesLost_));
+    ScoreFile.write(reinterpret_cast<char*>(&GamesPlayed_), sizeof(GamesPlayed_));
+    ScoreFile.write(reinterpret_cast<char*>(&GamesWon_), sizeof(GamesWon_));
+    ScoreFile.write(reinterpret_cast<char*>(&GamesLost_), sizeof(GamesLost_));
     for (FScore& Score : Scores_)
     {
-        ScoreFile.write((char*)&Score, sizeof(Score));
+        ScoreFile.write(reinterpret_cast<char*>(&Score), sizeof(Score));
     }
     ScoreFile.close();
 }
@@ -82,15 +82,15 @@ void FPlayerScores::LoadScoreFile()
         std::ifstream ScoreFile;
         ScoreFile.open(ScorePath_, std::ios::in);
         ScoreFile.seekg(0);
-        ScoreFile.read((char*)&GamesPlayed_, sizeof(GamesPlayed_));
-        ScoreFile.read((char*)&GamesWon_, sizeof(GamesWon_));
-        ScoreFile.read((char*)&GamesLost_, sizeof(GamesLost_));
+        ScoreFile.read(reinterpret_cast<char*>(&GamesPlayed_), sizeof(GamesPlayed_));
+        ScoreFile.read(reinterpret_cast<char*>(&GamesWon_), sizeof(GamesWon_));
+        ScoreFile.read(reinterpret_cast<char*>(&GamesLost_), sizeof(GamesLost_));
 
         Scores_.clear();
         for (int i = 0; i < GamesWon_ + GamesLost_; ++i)
         {
             FScore Score;
-            ScoreFile.read((char*)&Score, sizeof(Score));
+            ScoreFile.read(reinterpret_cast<char*>(&Score), sizeof(Score));
             Scores_.push_back(Score);
         }
         ScoreFile.close();
