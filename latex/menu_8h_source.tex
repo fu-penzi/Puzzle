@@ -1,0 +1,86 @@
+\hypertarget{menu_8h_source}{}\doxysection{menu.\+h}
+\label{menu_8h_source}\index{src/menu.h@{src/menu.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MENU\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MENU\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gameconfig_8h}{game/gameconfig.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}game/player.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}loadgamedialog.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}scoredialog.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QActionGroup>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QMenuBar>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <QWidget>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_u_i_menu}{UIMenu}}\ :\ \textcolor{keyword}{public}\ QWidget}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_u_i_menu}{UIMenu}}(QWidget*\ Parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_menu_a438a1c41203e40687bddf2f1a73d4a21}{InitMenu}}(QMenuBar\ *MenuBar,\ \mbox{\hyperlink{class_f_player}{FPlayer}}*\ Player);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ signals:}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_menu_aecf6929de9e02076797febd421e361e1}{StartGame}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{class_f_player}{FPlayer}}*\ Player\_;}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}}\ Difficulty\_\{EDifficulty::Default\};}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}}\ GameMode\_\{EMode::Default\};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_u_i_load_game_dialog}{UILoadGameDialog}}\ LoadGameDialog\_;}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_u_i_score_dialog}{UIScoreDialog}}\ ScoreDialog\_;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ QMenuBar*\ MenuBar\_;}
+\DoxyCodeLine{00051\ \ \ \ \ QMenu\ GameMenu\_\{\textcolor{stringliteral}{"{}Game"{}}\};}
+\DoxyCodeLine{00052\ \ \ \ \ QMenu\ DifficultyMenu\_\{\textcolor{stringliteral}{"{}Difficulty"{}}\};}
+\DoxyCodeLine{00053\ \ \ \ \ QMenu\ GameModeMenu\_\{\textcolor{stringliteral}{"{}Game\ mode"{}}\};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ QAction\ NewGameAction\_\{\textcolor{stringliteral}{"{}New\ game"{}}\};}
+\DoxyCodeLine{00056\ \ \ \ \ QAction\ SaveGameAction\_\{\textcolor{stringliteral}{"{}Save"{}}\};}
+\DoxyCodeLine{00057\ \ \ \ \ QAction\ LoadGameAction\_\{\textcolor{stringliteral}{"{}Load"{}}\};}
+\DoxyCodeLine{00058\ \ \ \ \ QAction\ ScoreAction\_\{\textcolor{stringliteral}{"{}Score"{}}\};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ QActionGroup\ DifficultyActionGroup\_\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00061\ \ \ \ \ QAction\ EasyAction\_\{\textcolor{stringliteral}{"{}Easy"{}}\};}
+\DoxyCodeLine{00062\ \ \ \ \ QAction\ MediumAction\_\{\textcolor{stringliteral}{"{}Medium"{}}\};}
+\DoxyCodeLine{00063\ \ \ \ \ QAction\ HardAction\_\{\textcolor{stringliteral}{"{}Hard"{}}\};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ QActionGroup\ GameModeActionGroup\_\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00066\ \ \ \ \ QAction\ FreeSwapAction\_\{\textcolor{stringliteral}{"{}Free\ swapping"{}}\};}
+\DoxyCodeLine{00067\ \ \ \ \ QAction\ EmptySwapAction\_\{\textcolor{stringliteral}{"{}Empty\ tile\ swapping"{}}\};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ NewGame();}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ InitActions();}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ InitActionGroup(QList<QAction*>\ Actions,\ QMenu*\ Menu,\ QActionGroup\&\ ActionGroup);}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateCheckedActions();}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ ShowScoreDialog();}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ ShowLoadGameDialog();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ E,\ std::\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ InitActionsHandler(QList<QAction*>\ Actions,\ std::array<E,\ N>\ Enum,\ E\&\ ToSet)}
+\DoxyCodeLine{00079\ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ N;\ ++i)}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ connect(Actions[i],\ \&QAction::triggered,\ \textcolor{keyword}{this},\ [\&,\ i,\ Enum]()}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ToSet\ =\ Enum[i];}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NewGame();}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(Enum[i]\ ==\ E::Default)}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Actions[i]-\/>setChecked(\textcolor{keyword}{true});}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MENU\_H}}
+
+\end{DoxyCode}

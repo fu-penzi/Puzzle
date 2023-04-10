@@ -1,0 +1,46 @@
+\hypertarget{puzzle_8h_source}{}\doxysection{puzzle.\+h}
+\label{puzzle_8h_source}\index{src/game/puzzle.h@{src/game/puzzle.h}}
+\mbox{\hyperlink{puzzle_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PUZZLE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PUZZLE\_H}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_grid_position}{FGridPosition}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_f_grid_position_a23c1e047e16326c099acb6312d93aacd}{Row}};\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_f_grid_position_a4e0664a45dcccb021c74cee0dcaa4597}{Column}};\ }
+\DoxyCodeLine{00013\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6}{EPuzzleType}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6a94e94133f4bdc1794c6b647b8ea134d0}{STANDARD}},\ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6aba2b45bdc11e2a4a6e86aab2ac693cbb}{EMPTY}}\ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_puzzle}{FPuzzle}}}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_f_puzzle_ae8241fe75014290285c859e6729db3e9}{FPuzzle}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{class_f_puzzle_ae8241fe75014290285c859e6729db3e9}{FPuzzle}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_f_puzzle_aba07a3d09fef5e67aac6b07b494add10}{Id}},\ \mbox{\hyperlink{struct_f_grid_position}{FGridPosition}}\ \mbox{\hyperlink{class_f_puzzle_a0aa7cc6b123e88bfc59705d3eea6f244}{GridPosition}},\ \mbox{\hyperlink{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6}{EPuzzleType}}\ \mbox{\hyperlink{class_f_puzzle_a527cd86aa1b85dd6533b1b319a04b65d}{PuzzleType}});}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_grid_position}{FGridPosition}}\&\ \mbox{\hyperlink{class_f_puzzle_a0aa7cc6b123e88bfc59705d3eea6f244}{GridPosition}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_puzzle_a7ea458121ab9c61dd7f30fee922f036c}{SetGridPosition}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_grid_position}{FGridPosition}}\ \&NewGridPosition);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_f_puzzle_aba07a3d09fef5e67aac6b07b494add10}{Id}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6}{EPuzzleType}}\ \mbox{\hyperlink{class_f_puzzle_a527cd86aa1b85dd6533b1b319a04b65d}{PuzzleType}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_puzzle_a544264e0b33913286a197e6109ea39db}{IsNeighbour}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_puzzle}{FPuzzle}}\ \&Puzzle)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{struct_f_grid_position}{FGridPosition}}\ GridPosition\_\{\};}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ Id\_\{\};}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6}{EPuzzleType}}\ PuzzleType\_\{\};}
+\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PUZZLE\_H}}
+
+\end{DoxyCode}

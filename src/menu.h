@@ -10,17 +10,42 @@
 #include <QMenuBar>
 #include <QWidget>
 
-class FMenu : public QWidget
+/**
+ *  @author Piotr Nowak
+ *  @brief Menu bar widget used to configure game and display player scores.
+ */
+class UIMenu : public QWidget
 {
     Q_OBJECT
+
+public:
+
+    /**
+     * Constructor used to initialize class.
+     * @param Parent parent widget
+     */
+    explicit UIMenu(QWidget* Parent = nullptr);
+
+    /**
+     * Add menus to menu bar and initialize event handlers
+     * @param MenuBar menu bar widget
+     * @param Player player instance
+     */
+    void InitMenu(QMenuBar *MenuBar, FPlayer* Player);
+
+signals:
+    /**
+     * Emit start game signal
+     */
+    void StartGame();
 
 private:
     FPlayer* Player_;
     EDifficulty Difficulty_{EDifficulty::Default};
     EMode GameMode_{EMode::Default};
 
-    FLoadGameDialog LoadGameDialog_;
-    ScoreDialog ScoreDialog_;
+    UILoadGameDialog LoadGameDialog_;
+    UIScoreDialog ScoreDialog_;
 
     QMenuBar* MenuBar_;
     QMenu GameMenu_{"Game"};
@@ -40,11 +65,6 @@ private:
     QActionGroup GameModeActionGroup_{nullptr};
     QAction FreeSwapAction_{"Free swapping"};
     QAction EmptySwapAction_{"Empty tile swapping"};
-
-public:
-    explicit FMenu(QWidget *Parent = nullptr);
-
-    void InitMenu(QMenuBar *MenuBar, FPlayer* Player);
 
 private:
     void NewGame();
@@ -71,9 +91,6 @@ private:
             }
         }
     }
-
-signals:
-    void StartGame();
 };
 
 #endif // MENU_H

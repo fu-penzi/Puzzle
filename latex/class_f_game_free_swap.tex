@@ -1,0 +1,146 @@
+\hypertarget{class_f_game_free_swap}{}\doxysection{FGame\+Free\+Swap Class Reference}
+\label{class_f_game_free_swap}\index{FGameFreeSwap@{FGameFreeSwap}}
+
+
+Represents variant of game without empty grid space and with free puzzle swapping.  
+
+
+
+
+{\ttfamily \#include $<$gamefreeswap.\+h$>$}
+
+Inheritance diagram for FGame\+Free\+Swap\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_f_game_free_swap}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_game_free_swap_a77f86dd70d321fa8f477010bc6a7b1f8}{FGame\+Free\+Swap}} (int \mbox{\hyperlink{class_f_game_aa9e17067e8b17fa026a1f0d04295ea7d}{Game\+Id}}, \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}} Difficulty, \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}} Mode)
+\item 
+\mbox{\hyperlink{class_f_game_free_swap_ae095fa5f3e0921c2a6c193c336e408c8}{FGame\+Free\+Swap}} (\mbox{\hyperlink{struct_f_game_state}{FGame\+State}} \mbox{\hyperlink{class_f_game_adc24941cc4176f9fff9c0f52045d6419}{Game\+State}}, \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}} Difficulty, \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}} Mode)
+\item 
+void \mbox{\hyperlink{class_f_game_free_swap_a0ce51cfca8d7f7c463cd8890ef7bbb4c}{On\+Puzzle\+Click}} (int Widget\+Id) override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_f_game}{FGame}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_game_a7230768a22c9a141e2292a6e5855222d}{FGame}} (int \mbox{\hyperlink{class_f_game_aa9e17067e8b17fa026a1f0d04295ea7d}{Game\+Id}}, \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}} Difficulty, \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}} Mode)
+\item 
+\mbox{\hyperlink{class_f_game_acfe54c5ef3e96c5f7ef0489f60317d70}{FGame}} (\mbox{\hyperlink{struct_f_game_state}{FGame\+State}} \mbox{\hyperlink{class_f_game_adc24941cc4176f9fff9c0f52045d6419}{Game\+State}}, \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}} Difficulty, \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}} Mode)
+\item 
+int \mbox{\hyperlink{class_f_game_aa9e17067e8b17fa026a1f0d04295ea7d}{Game\+Id}} () const
+\item 
+int \mbox{\hyperlink{class_f_game_a12af412ef0a28682b600a968f4799ad6}{Moves}} () const
+\item 
+bool \mbox{\hyperlink{class_f_game_a397464b990b3bf616e611d2a4382f7d9}{b\+Win}} () const
+\item 
+int \mbox{\hyperlink{class_f_game_a0a0f2e56f46dcdf7ee442cc243099b2c}{Time}} () const
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{class_f_puzzle}{FPuzzle}} $>$ \& \mbox{\hyperlink{class_f_game_a7892b61abbdd6de700c3c4f36bcdd199}{Puzzle\+Vector}} () const
+\item 
+const \mbox{\hyperlink{struct_f_game_state}{FGame\+State}} \& \mbox{\hyperlink{class_f_game_adc24941cc4176f9fff9c0f52045d6419}{Game\+State}} () const
+\item 
+const \mbox{\hyperlink{class_f_game_config}{FGame\+Config}} \& \mbox{\hyperlink{class_f_game_a73fc30207f4dc968f2e88da3f11492cf}{Game\+Config}} () const
+\item 
+virtual void \mbox{\hyperlink{class_f_game_af537d371b651ec48616ae4332fc2d0fd}{On\+Puzzle\+Click}} (int Widget\+Id)=0
+\item 
+void \mbox{\hyperlink{class_f_game_a785f454112b31eb190feba70b1dcfc3f}{Update\+Timer}} ()
+\item 
+bool \mbox{\hyperlink{class_f_game_a7cb17ea5ceac235e331f5ada7475a26e}{Is\+Finished}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_f_game}{FGame}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_f_game_a3ab73295835279d9f987beb083a7dbdc}\label{class_f_game_a3ab73295835279d9f987beb083a7dbdc}} 
+bool {\bfseries Check\+Win} ()
+\item 
+\mbox{\Hypertarget{class_f_game_adb642902b432ffea33d82425af5ef631}\label{class_f_game_adb642902b432ffea33d82425af5ef631}} 
+void {\bfseries Swap\+Puzzle\+Positions} (\mbox{\hyperlink{class_f_puzzle}{FPuzzle}} \&A, \mbox{\hyperlink{class_f_puzzle}{FPuzzle}} \&B)
+\item 
+\mbox{\Hypertarget{class_f_game_ab0f7f1e1ac2ae08686acd6366cb2079a}\label{class_f_game_ab0f7f1e1ac2ae08686acd6366cb2079a}} 
+\mbox{\hyperlink{struct_f_grid_position}{FGrid\+Position}} {\bfseries Index\+To\+Grid\+Position} (int index)
+\item 
+\mbox{\Hypertarget{class_f_game_a075f45c14e7d1c3b630bf2d267df26f7}\label{class_f_game_a075f45c14e7d1c3b630bf2d267df26f7}} 
+std\+::vector$<$ int $>$ {\bfseries Get\+Shuffled\+Idx\+Array} ()
+\item 
+\mbox{\Hypertarget{class_f_game_af6e2d271ace8172da7f779e8727931c4}\label{class_f_game_af6e2d271ace8172da7f779e8727931c4}} 
+virtual void {\bfseries Init\+Puzzle} ()=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_f_game}{FGame}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_f_game_a842158a94fd649d3fa84dff19f8dd15a}\label{class_f_game_a842158a94fd649d3fa84dff19f8dd15a}} 
+\mbox{\hyperlink{struct_f_game_state}{FGame\+State}} {\bfseries Game\+State\+\_\+} \{\}
+\item 
+\mbox{\Hypertarget{class_f_game_a180231693a256a2ec95d74107bcd3d70}\label{class_f_game_a180231693a256a2ec95d74107bcd3d70}} 
+\mbox{\hyperlink{class_f_game_config}{FGame\+Config}} {\bfseries Game\+Config\+\_\+} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents variant of game without empty grid space and with free puzzle swapping. 
+
+\begin{DoxyAuthor}{Author}
+Piotr Nowak 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_f_game_free_swap_a77f86dd70d321fa8f477010bc6a7b1f8}\label{class_f_game_free_swap_a77f86dd70d321fa8f477010bc6a7b1f8}} 
+\index{FGameFreeSwap@{FGameFreeSwap}!FGameFreeSwap@{FGameFreeSwap}}
+\index{FGameFreeSwap@{FGameFreeSwap}!FGameFreeSwap@{FGameFreeSwap}}
+\doxysubsubsection{\texorpdfstring{FGameFreeSwap()}{FGameFreeSwap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily FGame\+Free\+Swap\+::\+FGame\+Free\+Swap (\begin{DoxyParamCaption}\item[{int}]{Game\+Id,  }\item[{\mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}}}]{Difficulty,  }\item[{\mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}}}]{Mode }\end{DoxyParamCaption})}
+
+Constructor used to make new game. 
+\begin{DoxyParams}{Parameters}
+{\em Game\+Id} & game unique identifier \\
+\hline
+{\em Difficulty} & game difficulty \\
+\hline
+{\em Mode} & game mode \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_f_game_free_swap_ae095fa5f3e0921c2a6c193c336e408c8}\label{class_f_game_free_swap_ae095fa5f3e0921c2a6c193c336e408c8}} 
+\index{FGameFreeSwap@{FGameFreeSwap}!FGameFreeSwap@{FGameFreeSwap}}
+\index{FGameFreeSwap@{FGameFreeSwap}!FGameFreeSwap@{FGameFreeSwap}}
+\doxysubsubsection{\texorpdfstring{FGameFreeSwap()}{FGameFreeSwap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily FGame\+Free\+Swap\+::\+FGame\+Free\+Swap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_f_game_state}{FGame\+State}}}]{Game\+State,  }\item[{\mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}}}]{Difficulty,  }\item[{\mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}}}]{Mode }\end{DoxyParamCaption})}
+
+Constructor used to load game from Game\+State 
+\begin{DoxyParams}{Parameters}
+{\em Game\+State} & \\
+\hline
+{\em Difficulty} & game difficulty \\
+\hline
+{\em Mode} & game mode \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_f_game_free_swap_a0ce51cfca8d7f7c463cd8890ef7bbb4c}\label{class_f_game_free_swap_a0ce51cfca8d7f7c463cd8890ef7bbb4c}} 
+\index{FGameFreeSwap@{FGameFreeSwap}!OnPuzzleClick@{OnPuzzleClick}}
+\index{OnPuzzleClick@{OnPuzzleClick}!FGameFreeSwap@{FGameFreeSwap}}
+\doxysubsubsection{\texorpdfstring{OnPuzzleClick()}{OnPuzzleClick()}}
+{\footnotesize\ttfamily void FGame\+Free\+Swap\+::\+On\+Puzzle\+Click (\begin{DoxyParamCaption}\item[{int}]{Widget\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Handle player clicking puzzle 
+\begin{DoxyParams}{Parameters}
+{\em Widget\+Id} & id of puzzle clicked \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_f_game_af537d371b651ec48616ae4332fc2d0fd}{FGame}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/game/gamefreeswap.\+h\item 
+src/game/gamefreeswap.\+cpp\end{DoxyCompactItemize}

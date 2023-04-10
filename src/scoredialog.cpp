@@ -4,8 +4,8 @@
 
 #include <QTableView>
 
-ScoreDialog::ScoreDialog(QWidget *parent) :
-    QDialog(parent),
+UIScoreDialog::UIScoreDialog(QWidget *Parent) :
+    QDialog(Parent),
     Ui_(new Ui::ScoreDialog)
 {
     Ui_->setupUi(this);
@@ -14,12 +14,12 @@ ScoreDialog::ScoreDialog(QWidget *parent) :
     Ui_->scoreTable->horizontalHeader()->setStretchLastSection(true);
 }
 
-ScoreDialog::~ScoreDialog()
+UIScoreDialog::~UIScoreDialog()
 {
     delete Ui_;
 }
 
-void ScoreDialog::Show(const FPlayerScores& PlayerScores)
+void UIScoreDialog::Show(const FPlayerScores& PlayerScores)
 {
     Ui_->totalLabel->setText(QString::number(PlayerScores.GamesPlayed()));
     Ui_->wonLabel->setText(QString::number(PlayerScores.GamesWon()));
@@ -36,7 +36,7 @@ void ScoreDialog::Show(const FPlayerScores& PlayerScores)
     show();
 }
 
-void ScoreDialog::AddRow(FScore Score)
+void UIScoreDialog::AddRow(FScore Score)
 {
     QStandardItem* GameId =  new QStandardItem(QString::number(Score.GameId));
     QStandardItem* Result =  Score.bWin ? new QStandardItem("Win") : new QStandardItem("Lose");

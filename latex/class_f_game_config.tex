@@ -1,0 +1,147 @@
+\hypertarget{class_f_game_config}{}\doxysection{FGame\+Config Class Reference}
+\label{class_f_game_config}\index{FGameConfig@{FGameConfig}}
+
+
+Represents a single puzzle piece.  
+
+
+
+
+{\ttfamily \#include $<$gameconfig.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_game_config_a7429ea18b67127665402291517b57fb3}{FGame\+Config}} ()
+\item 
+\mbox{\hyperlink{class_f_game_config_a97c343e9cd3ef59e793ed229dfbe0ce0}{FGame\+Config}} (\mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}} \mbox{\hyperlink{class_f_game_config_a350194a014660b54044b5129c82660b5}{Difficulty}}, \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}} \mbox{\hyperlink{class_f_game_config_abae2f93325b69e0049b31c73c39db46a}{Mode}})
+\item 
+int \mbox{\hyperlink{class_f_game_config_a1cd06b127588ef37e32fc5c34492c775}{Grid\+Size}} () const
+\item 
+int \mbox{\hyperlink{class_f_game_config_a6eb706c794897b9ab57af157df914e69}{Puzzle\+Number}} () const
+\item 
+double \mbox{\hyperlink{class_f_game_config_a92983dab5994992782b05e8cb1565b80}{Time\+Limit}} () const
+\item 
+\mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}} \mbox{\hyperlink{class_f_game_config_a350194a014660b54044b5129c82660b5}{Difficulty}} () const
+\item 
+\mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}} \mbox{\hyperlink{class_f_game_config_abae2f93325b69e0049b31c73c39db46a}{Mode}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{class_f_game_config_ac0402de59201898561e7849528d45ab8}{Mode\+To\+String}} (\mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}} \mbox{\hyperlink{class_f_game_config_abae2f93325b69e0049b31c73c39db46a}{Mode}})
+\item 
+static std\+::string \mbox{\hyperlink{class_f_game_config_a12c671d8171a847f746afe22fd3bffa9}{Difficulty\+To\+String}} (\mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}} \mbox{\hyperlink{class_f_game_config_a350194a014660b54044b5129c82660b5}{Difficulty}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a single puzzle piece. 
+
+\begin{DoxyAuthor}{Author}
+Piotr Nowak 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_f_game_config_a7429ea18b67127665402291517b57fb3}\label{class_f_game_config_a7429ea18b67127665402291517b57fb3}} 
+\index{FGameConfig@{FGameConfig}!FGameConfig@{FGameConfig}}
+\index{FGameConfig@{FGameConfig}!FGameConfig@{FGameConfig}}
+\doxysubsubsection{\texorpdfstring{FGameConfig()}{FGameConfig()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily FGame\+Config\+::\+FGame\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor \mbox{\Hypertarget{class_f_game_config_a97c343e9cd3ef59e793ed229dfbe0ce0}\label{class_f_game_config_a97c343e9cd3ef59e793ed229dfbe0ce0}} 
+\index{FGameConfig@{FGameConfig}!FGameConfig@{FGameConfig}}
+\index{FGameConfig@{FGameConfig}!FGameConfig@{FGameConfig}}
+\doxysubsubsection{\texorpdfstring{FGameConfig()}{FGameConfig()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily FGame\+Config\+::\+FGame\+Config (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}}}]{Difficulty,  }\item[{\mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}}}]{Mode }\end{DoxyParamCaption})}
+
+Constructor used to initialize config values. 
+\begin{DoxyParams}{Parameters}
+{\em Difficulty} & \\
+\hline
+{\em Mode} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_f_game_config_a350194a014660b54044b5129c82660b5}\label{class_f_game_config_a350194a014660b54044b5129c82660b5}} 
+\index{FGameConfig@{FGameConfig}!Difficulty@{Difficulty}}
+\index{Difficulty@{Difficulty}!FGameConfig@{FGameConfig}}
+\doxysubsubsection{\texorpdfstring{Difficulty()}{Difficulty()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}} FGame\+Config\+::\+Difficulty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter \begin{DoxyReturn}{Returns}
+Game difficulty. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_game_config_a12c671d8171a847f746afe22fd3bffa9}\label{class_f_game_config_a12c671d8171a847f746afe22fd3bffa9}} 
+\index{FGameConfig@{FGameConfig}!DifficultyToString@{DifficultyToString}}
+\index{DifficultyToString@{DifficultyToString}!FGameConfig@{FGameConfig}}
+\doxysubsubsection{\texorpdfstring{DifficultyToString()}{DifficultyToString()}}
+{\footnotesize\ttfamily static std\+::string FGame\+Config\+::\+Difficulty\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}}}]{Difficulty }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Convert EDifficulty value to string. 
+\begin{DoxyParams}{Parameters}
+{\em Difficulty} & to convert to string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Stringified difficulty. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_game_config_a1cd06b127588ef37e32fc5c34492c775}\label{class_f_game_config_a1cd06b127588ef37e32fc5c34492c775}} 
+\index{FGameConfig@{FGameConfig}!GridSize@{GridSize}}
+\index{GridSize@{GridSize}!FGameConfig@{FGameConfig}}
+\doxysubsubsection{\texorpdfstring{GridSize()}{GridSize()}}
+{\footnotesize\ttfamily int FGame\+Config\+::\+Grid\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter \begin{DoxyReturn}{Returns}
+Length of one side of puzzle grid. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_game_config_abae2f93325b69e0049b31c73c39db46a}\label{class_f_game_config_abae2f93325b69e0049b31c73c39db46a}} 
+\index{FGameConfig@{FGameConfig}!Mode@{Mode}}
+\index{Mode@{Mode}!FGameConfig@{FGameConfig}}
+\doxysubsubsection{\texorpdfstring{Mode()}{Mode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}} FGame\+Config\+::\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter \begin{DoxyReturn}{Returns}
+Game mode. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_game_config_ac0402de59201898561e7849528d45ab8}\label{class_f_game_config_ac0402de59201898561e7849528d45ab8}} 
+\index{FGameConfig@{FGameConfig}!ModeToString@{ModeToString}}
+\index{ModeToString@{ModeToString}!FGameConfig@{FGameConfig}}
+\doxysubsubsection{\texorpdfstring{ModeToString()}{ModeToString()}}
+{\footnotesize\ttfamily static std\+::string FGame\+Config\+::\+Mode\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}}}]{Mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Convert EMode value to string. 
+\begin{DoxyParams}{Parameters}
+{\em Mode} & to convert to string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Stringified game mode. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_game_config_a6eb706c794897b9ab57af157df914e69}\label{class_f_game_config_a6eb706c794897b9ab57af157df914e69}} 
+\index{FGameConfig@{FGameConfig}!PuzzleNumber@{PuzzleNumber}}
+\index{PuzzleNumber@{PuzzleNumber}!FGameConfig@{FGameConfig}}
+\doxysubsubsection{\texorpdfstring{PuzzleNumber()}{PuzzleNumber()}}
+{\footnotesize\ttfamily int FGame\+Config\+::\+Puzzle\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter \begin{DoxyReturn}{Returns}
+Total number of puzzle in grid. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_game_config_a92983dab5994992782b05e8cb1565b80}\label{class_f_game_config_a92983dab5994992782b05e8cb1565b80}} 
+\index{FGameConfig@{FGameConfig}!TimeLimit@{TimeLimit}}
+\index{TimeLimit@{TimeLimit}!FGameConfig@{FGameConfig}}
+\doxysubsubsection{\texorpdfstring{TimeLimit()}{TimeLimit()}}
+{\footnotesize\ttfamily double FGame\+Config\+::\+Time\+Limit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter \begin{DoxyReturn}{Returns}
+Time limit of game. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/game/\mbox{\hyperlink{gameconfig_8h}{gameconfig.\+h}}\item 
+src/game/gameconfig.\+cpp\end{DoxyCompactItemize}

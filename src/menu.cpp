@@ -1,12 +1,12 @@
 #include "menu.h"
 
-FMenu::FMenu(QWidget *Parent)
+UIMenu::UIMenu(QWidget *Parent)
     : QWidget{Parent}
 {
 
 }
 
-void FMenu::InitMenu(QMenuBar* MenuBar, FPlayer* Player)
+void UIMenu::InitMenu(QMenuBar* MenuBar, FPlayer* Player)
 {
     MenuBar_ = MenuBar;
     Player_ = Player;
@@ -17,7 +17,7 @@ void FMenu::InitMenu(QMenuBar* MenuBar, FPlayer* Player)
 
     InitActions();
 
-    connect(&LoadGameDialog_, &FLoadGameDialog::OnSaveSelect, this, [&](std::string SaveName)
+    connect(&LoadGameDialog_, &UILoadGameDialog::OnSaveSelect, this, [&](std::string SaveName)
     {
         Player_->LoadGame(SaveName);
         UpdateCheckedActions();
@@ -26,7 +26,7 @@ void FMenu::InitMenu(QMenuBar* MenuBar, FPlayer* Player)
 
 }
 
-void FMenu::InitActions()
+void UIMenu::InitActions()
 {
     const QList<QAction*> GameActionList = {&NewGameAction_, &SaveGameAction_, &LoadGameAction_, &ScoreAction_};
     for (QAction* Action : GameActionList)
@@ -35,13 +35,13 @@ void FMenu::InitActions()
         GameMenu_.addAction(Action);
     }
 
-    connect(&NewGameAction_, &QAction::triggered, this, &FMenu::NewGame);
+    connect(&NewGameAction_, &QAction::triggered, this, &UIMenu::NewGame);
     connect(&SaveGameAction_, &QAction::triggered, this, [&]()
     {
         Player_->SaveGame();
     });
-    connect(&LoadGameAction_, &QAction::triggered, this, &FMenu::ShowLoadGameDialog);
-    connect(&ScoreAction_, &QAction::triggered, this, &FMenu::ShowScoreDialog);
+    connect(&LoadGameAction_, &QAction::triggered, this, &UIMenu::ShowLoadGameDialog);
+    connect(&ScoreAction_, &QAction::triggered, this, &UIMenu::ShowScoreDialog);
 
     const QList<QAction*> DifficultyActionList = {&EasyAction_, &MediumAction_, &HardAction_};
     constexpr std::array<EDifficulty, 3> Difficulties{EDifficulty::Easy, EDifficulty::Medium, EDifficulty::Hard};
@@ -56,7 +56,7 @@ void FMenu::InitActions()
     NewGame();
 }
 
-void FMenu::InitActionGroup(QList<QAction *> Actions, QMenu *Menu, QActionGroup &ActionGroup)
+void UIMenu::InitActionGroup(QList<QAction *> Actions, QMenu *Menu, QActionGroup &ActionGroup)
 {
     ActionGroup.setParent(Menu);
     ActionGroup.setExclusive(true);
@@ -68,7 +68,7 @@ void FMenu::InitActionGroup(QList<QAction *> Actions, QMenu *Menu, QActionGroup 
     }
 }
 
-void FMenu::UpdateCheckedActions()
+void UIMenu::UpdateCheckedActions()
 {
     switch (Player_->CurrentGame()->GameConfig().Difficulty())
     {
@@ -98,18 +98,18 @@ void FMenu::UpdateCheckedActions()
     }
 }
 
-void FMenu::ShowScoreDialog()
+void UIMenu::ShowScoreDialog()
 {
     ScoreDialog_.Show(Player_->PlayerScores());
 }
 
-void FMenu::ShowLoadGameDialog()
+void UIMenu::ShowLoadGameDialog()
 {
     LoadGameDialog_.SetGameSaves(Player_->GameSaves());
     LoadGameDialog_.show();
 }
 
-void FMenu::NewGame()
+void UIMenu::NewGame()
 {
     Player_->NewGame(Difficulty_, GameMode_);
     emit StartGame();

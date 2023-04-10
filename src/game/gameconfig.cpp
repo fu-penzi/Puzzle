@@ -12,12 +12,12 @@ FGameConfig::FGameConfig(EDifficulty Difficulty, EMode Mode):
     switch (Difficulty)
     {
     case EDifficulty::Easy:
-        GridSize_ = 2;
-        TimeLimit_ = 15;
+        GridSize_ = 3;
+        TimeLimit_ = 45;
         break;
     case EDifficulty::Medium:
         GridSize_ = 4;
-        TimeLimit_ = 30;
+        TimeLimit_ = 60;
         break;
     case EDifficulty::Hard:
         GridSize_ = 5;

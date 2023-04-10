@@ -1,0 +1,74 @@
+\hypertarget{gameconfig_8h_source}{}\doxysection{gameconfig.\+h}
+\label{gameconfig_8h_source}\index{src/game/gameconfig.h@{src/game/gameconfig.h}}
+\mbox{\hyperlink{gameconfig_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GAMECONFIG\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GAMECONFIG\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787ea6ac3b4170fac295fa1a8819bc714f5b0}{FreeSwap}},\ }
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787ea270a1a8eeabad167dfd2ee27423231f0}{EmptySwap}},\ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787ea7a1920d61156abc05a60135aefe8bc67}{Default}}\ =\ \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787ea270a1a8eeabad167dfd2ee27423231f0}{EmptySwap}}\ }
+\DoxyCodeLine{00018\ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}}}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6a7f943921724d63dc0ac9c6febf99fa88}{Easy}},\ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6a87f8a6ab85c9ced3702b4ea641ad4bb5}{Medium}},\ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6a3656183169810334a96b91129dc9d881}{Hard}},\ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787ea7a1920d61156abc05a60135aefe8bc67}{Default}}\ =\ \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6a7f943921724d63dc0ac9c6febf99fa88}{Easy}}\ }
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00033\ \textcolor{keyword}{using\ }TStringArray\ =\ \ std::array<const\ std::string\_view,\ N>;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_game_config}{FGameConfig}}}
+\DoxyCodeLine{00040\ \{}
+\DoxyCodeLine{00041\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_f_game_config_a7429ea18b67127665402291517b57fb3}{FGameConfig}}();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{class_f_game_config_a7429ea18b67127665402291517b57fb3}{FGameConfig}}(\mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}}\ \mbox{\hyperlink{class_f_game_config_a350194a014660b54044b5129c82660b5}{Difficulty}},\ \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}}\ \mbox{\hyperlink{class_f_game_config_abae2f93325b69e0049b31c73c39db46a}{Mode}});}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_f_game_config_a1cd06b127588ef37e32fc5c34492c775}{GridSize}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_f_game_config_a6eb706c794897b9ab57af157df914e69}{PuzzleNumber}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_f_game_config_a92983dab5994992782b05e8cb1565b80}{TimeLimit}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}}\ \mbox{\hyperlink{class_f_game_config_a350194a014660b54044b5129c82660b5}{Difficulty}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}}\ \mbox{\hyperlink{class_f_game_config_abae2f93325b69e0049b31c73c39db46a}{Mode}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{class_f_game_config_ac0402de59201898561e7849528d45ab8}{ModeToString}}(\mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}}\ \mbox{\hyperlink{class_f_game_config_abae2f93325b69e0049b31c73c39db46a}{Mode}})}
+\DoxyCodeLine{00094\ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string\{ModeStrings\_[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{class_f_game_config_abae2f93325b69e0049b31c73c39db46a}{Mode}})]\};}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{class_f_game_config_a12c671d8171a847f746afe22fd3bffa9}{DifficultyToString}}(\mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}}\ \mbox{\hyperlink{class_f_game_config_a350194a014660b54044b5129c82660b5}{Difficulty}})}
+\DoxyCodeLine{00104\ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::string\{DifficultyStrings\_[\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\mbox{\hyperlink{class_f_game_config_a350194a014660b54044b5129c82660b5}{Difficulty}})]\};}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{int}\ GridSize\_;}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{int}\ PuzzleNumber\_;}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{double}\ TimeLimit\_;}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}}\ Difficulty\_;}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}}\ Mode\_;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ TStringArray<2>\ ModeStrings\_\ \{\ \textcolor{stringliteral}{"{}Free\ swap"{}},\ \textcolor{stringliteral}{"{}Empty\ tile\ swapping"{}}\ \};}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ TStringArray<3>\ DifficultyStrings\_\ \{\ \textcolor{stringliteral}{"{}Easy"{}},\ \textcolor{stringliteral}{"{}Medium"{}},\ \textcolor{stringliteral}{"{}Hard"{}}\ \};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GAMECONFIG\_H}}
+
+\end{DoxyCode}

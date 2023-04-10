@@ -1,0 +1,43 @@
+\hypertarget{puzzle_8h}{}\doxysection{src/game/puzzle.h File Reference}
+\label{puzzle_8h}\index{src/game/puzzle.h@{src/game/puzzle.h}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_f_grid_position}{FGrid\+Position}}
+\begin{DoxyCompactList}\small\item\em Position of a puzzle in grid. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_f_puzzle}{FPuzzle}}
+\begin{DoxyCompactList}\small\item\em Represents a single puzzle piece. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6}{EPuzzle\+Type}} \{ \mbox{\hyperlink{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6a94e94133f4bdc1794c6b647b8ea134d0}{STANDARD}}
+, \mbox{\hyperlink{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6aba2b45bdc11e2a4a6e86aab2ac693cbb}{EMPTY}}
+ \}
+\begin{DoxyCompactList}\small\item\em An enum class describing type of puzzle. Used to differentiate puzzles in \char`\"{}\+Empty tile swap\char`\"{} game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6}\label{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6}} 
+\index{puzzle.h@{puzzle.h}!EPuzzleType@{EPuzzleType}}
+\index{EPuzzleType@{EPuzzleType}!puzzle.h@{puzzle.h}}
+\doxysubsubsection{\texorpdfstring{EPuzzleType}{EPuzzleType}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6}{EPuzzle\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+An enum class describing type of puzzle. Used to differentiate puzzles in \char`\"{}\+Empty tile swap\char`\"{} game. 
+
+\begin{DoxyAuthor}{Author}
+Piotr Nowak 
+\end{DoxyAuthor}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STANDARD@{STANDARD}!puzzle.h@{puzzle.h}}\index{puzzle.h@{puzzle.h}!STANDARD@{STANDARD}}}\mbox{\Hypertarget{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6a94e94133f4bdc1794c6b647b8ea134d0}\label{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6a94e94133f4bdc1794c6b647b8ea134d0}} 
+STANDARD&Puzzle represents a button. Player can click button to move it to empty space. ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EMPTY@{EMPTY}!puzzle.h@{puzzle.h}}\index{puzzle.h@{puzzle.h}!EMPTY@{EMPTY}}}\mbox{\Hypertarget{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6aba2b45bdc11e2a4a6e86aab2ac693cbb}\label{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6aba2b45bdc11e2a4a6e86aab2ac693cbb}} 
+EMPTY&Puzzle represents an empty space in grid. Player can move neighbour puzzles to empty space. \\
+\hline
+
+\end{DoxyEnumFields}

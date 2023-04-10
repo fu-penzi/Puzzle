@@ -4,7 +4,7 @@
 #include <QString>
 #include <iostream>
 
-FPuzzleWidget::FPuzzleWidget(int Id, QWidget *Parent)
+UIPuzzleWidget::UIPuzzleWidget(int Id, QWidget *Parent)
     : QPushButton{QString::fromStdString(std::to_string(Id).c_str()), Parent}
     , Id_{Id}
 {
@@ -16,7 +16,7 @@ FPuzzleWidget::FPuzzleWidget(int Id, QWidget *Parent)
     });
 }
 
-int FPuzzleWidget::Id() const
+int UIPuzzleWidget::Id() const
 {
     return Id_;
 }

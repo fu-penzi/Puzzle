@@ -2,7 +2,7 @@
 #define SCOREDIALOG_H
 
 #include "game/playerscores.h"
-#include "qstandarditemmodel.h"
+#include <QStandardItemModel>
 #include <QDialog>
 
 namespace Ui
@@ -10,19 +10,33 @@ namespace Ui
 class ScoreDialog;
 }
 
-class ScoreDialog : public QDialog
+
+/**
+ *  @author Piotr Nowak
+ *  @brief Score dialog wi
+ */
+class UIScoreDialog : public QDialog
 {
     Q_OBJECT
+
+public:
+
+    /**
+     * Constructor used to initialize class.
+     * @param Parent parent widget
+     */
+    explicit UIScoreDialog(QWidget* Parent = nullptr);
+    ~UIScoreDialog();
+
+    /**
+     * Display score dialog.
+     * @param PlayerScores scores to display
+     */
+    void Show(const FPlayerScores& PlayerScores);
 
 private:
     QStandardItemModel* TableViewModel_;
     Ui::ScoreDialog *Ui_;
-
-public:
-    explicit ScoreDialog(QWidget *parent = nullptr);
-    ~ScoreDialog();
-
-    void Show(const FPlayerScores& PlayerScores);
 
 private:
     void AddRow(FScore Score);

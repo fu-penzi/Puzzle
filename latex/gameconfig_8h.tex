@@ -1,0 +1,96 @@
+\hypertarget{gameconfig_8h}{}\doxysection{src/game/gameconfig.h File Reference}
+\label{gameconfig_8h}\index{src/game/gameconfig.h@{src/game/gameconfig.h}}
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_f_game_config}{FGame\+Config}}
+\begin{DoxyCompactList}\small\item\em Represents a single puzzle piece. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{gameconfig_8h_a1951e8f3b7c8ff4181f37e3b5983534e}\label{gameconfig_8h_a1951e8f3b7c8ff4181f37e3b5983534e}} 
+{\footnotesize template$<$size\+\_\+t N$>$ }\\using {\bfseries TString\+Array} = std\+::array$<$ const std\+::string\+\_\+view, N $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}} \{ \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787ea6ac3b4170fac295fa1a8819bc714f5b0}{Free\+Swap}}
+, \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787ea270a1a8eeabad167dfd2ee27423231f0}{Empty\+Swap}}
+, \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787ea7a1920d61156abc05a60135aefe8bc67}{Default}} = Empty\+Swap
+ \}
+\begin{DoxyCompactList}\small\item\em An enum class describing game mode. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}} \{ \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6a7f943921724d63dc0ac9c6febf99fa88}{Easy}}
+, \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6a87f8a6ab85c9ced3702b4ea641ad4bb5}{Medium}}
+, \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6a3656183169810334a96b91129dc9d881}{Hard}}
+, \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6a7a1920d61156abc05a60135aefe8bc67}{Default}} = Easy
+ \}
+\begin{DoxyCompactList}\small\item\em An enum class describing game difficulty. Has impact on time to finish game and grid size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}\label{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}} 
+\index{gameconfig.h@{gameconfig.h}!EDifficulty@{EDifficulty}}
+\index{EDifficulty@{EDifficulty}!gameconfig.h@{gameconfig.h}}
+\doxysubsubsection{\texorpdfstring{EDifficulty}{EDifficulty}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+An enum class describing game difficulty. Has impact on time to finish game and grid size. 
+
+\begin{DoxyAuthor}{Author}
+Piotr Nowak 
+\end{DoxyAuthor}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Easy@{Easy}!gameconfig.h@{gameconfig.h}}\index{gameconfig.h@{gameconfig.h}!Easy@{Easy}}}\mbox{\Hypertarget{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6a7f943921724d63dc0ac9c6febf99fa88}\label{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6a7f943921724d63dc0ac9c6febf99fa88}} 
+Easy&Easy game mode. ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Medium@{Medium}!gameconfig.h@{gameconfig.h}}\index{gameconfig.h@{gameconfig.h}!Medium@{Medium}}}\mbox{\Hypertarget{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6a87f8a6ab85c9ced3702b4ea641ad4bb5}\label{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6a87f8a6ab85c9ced3702b4ea641ad4bb5}} 
+Medium&Medium game mode. ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Hard@{Hard}!gameconfig.h@{gameconfig.h}}\index{gameconfig.h@{gameconfig.h}!Hard@{Hard}}}\mbox{\Hypertarget{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6a3656183169810334a96b91129dc9d881}\label{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6a3656183169810334a96b91129dc9d881}} 
+Hard&Hard game mode. ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Default@{Default}!gameconfig.h@{gameconfig.h}}\index{gameconfig.h@{gameconfig.h}!Default@{Default}}}\mbox{\Hypertarget{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6a7a1920d61156abc05a60135aefe8bc67}\label{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6a7a1920d61156abc05a60135aefe8bc67}} 
+Default&Default game mode (Easy). ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}\label{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}} 
+\index{gameconfig.h@{gameconfig.h}!EMode@{EMode}}
+\index{EMode@{EMode}!gameconfig.h@{gameconfig.h}}
+\doxysubsubsection{\texorpdfstring{EMode}{EMode}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+An enum class describing game mode. 
+
+\begin{DoxyAuthor}{Author}
+Piotr Nowak 
+\end{DoxyAuthor}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FreeSwap@{FreeSwap}!gameconfig.h@{gameconfig.h}}\index{gameconfig.h@{gameconfig.h}!FreeSwap@{FreeSwap}}}\mbox{\Hypertarget{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787ea6ac3b4170fac295fa1a8819bc714f5b0}\label{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787ea6ac3b4170fac295fa1a8819bc714f5b0}} 
+Free\+Swap&Variant of game without empty grid space and with free puzzle swapping. ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EmptySwap@{EmptySwap}!gameconfig.h@{gameconfig.h}}\index{gameconfig.h@{gameconfig.h}!EmptySwap@{EmptySwap}}}\mbox{\Hypertarget{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787ea270a1a8eeabad167dfd2ee27423231f0}\label{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787ea270a1a8eeabad167dfd2ee27423231f0}} 
+Empty\+Swap&Variant of game with one empty grid space. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Default@{Default}!gameconfig.h@{gameconfig.h}}\index{gameconfig.h@{gameconfig.h}!Default@{Default}}}\mbox{\Hypertarget{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787ea7a1920d61156abc05a60135aefe8bc67}\label{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787ea7a1920d61156abc05a60135aefe8bc67}} 
+Default&Default game mode (Empty\+Swap). ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}

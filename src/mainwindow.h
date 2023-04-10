@@ -19,31 +19,40 @@ class MainWindow;
 QT_END_NAMESPACE
 
 
-typedef std::vector<std::shared_ptr<FPuzzleWidget>> FPuzzleWidgets;
+typedef std::vector<std::shared_ptr<UIPuzzleWidget>> FPuzzleWidgets;
 
-class MainWindow : public QMainWindow
+/**
+ *  @author Piotr Nowak
+ *  @brief Application main window.
+ */
+class UIMainWindow : public QMainWindow
 {
     Q_OBJECT
+
+public:
+
+    /**
+     * Constructor used to initialize class.
+     * @param Parent parent widget
+     */
+    UIMainWindow(QWidget* Parent = nullptr);
+    ~UIMainWindow();
 
 private:
     FPlayer Player_;
     FPuzzleWidgets PuzzleWidgets_;
 
     Ui::MainWindow *Ui_;
-    FMenu* Menu;
+    UIMenu* Menu;
 
-    FWinDialog WinDialog_;
-    FLoadGameDialog LoadGameDialog_;
-
-public:
-    MainWindow(QWidget *Parent = nullptr);
-    ~MainWindow();
+    UIWinDialog WinDialog_;
+    UILoadGameDialog LoadGameDialog_;
 
 private:
     void InitPuzzleWidgets();
     void InitGame();
     void UpdateGrid();
-    void UpdateGridPosition(FPuzzleWidget* Widget, const FGridPosition& Position);
+    void UpdateGridPosition(UIPuzzleWidget* Widget, const FGridPosition& Position);
     void SwapWithEmptyPuzzle(int WidgetId);
     void ShowWinDialog();
     void UpdateLabels();

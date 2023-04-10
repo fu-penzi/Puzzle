@@ -1,0 +1,79 @@
+\hypertarget{class_u_i_menu}{}\doxysection{UIMenu Class Reference}
+\label{class_u_i_menu}\index{UIMenu@{UIMenu}}
+
+
+Menu bar widget used to configure game and display player scores.  
+
+
+
+
+{\ttfamily \#include $<$menu.\+h$>$}
+
+Inheritance diagram for UIMenu\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_u_i_menu}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_u_i_menu_aecf6929de9e02076797febd421e361e1}{Start\+Game}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_u_i_menu_a9636572230f2cfc573ae418b7a210b69}{UIMenu}} (QWidget $\ast$Parent=nullptr)
+\item 
+void \mbox{\hyperlink{class_u_i_menu_a438a1c41203e40687bddf2f1a73d4a21}{Init\+Menu}} (QMenu\+Bar $\ast$Menu\+Bar, \mbox{\hyperlink{class_f_player}{FPlayer}} $\ast$Player)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Menu bar widget used to configure game and display player scores. 
+
+\begin{DoxyAuthor}{Author}
+Piotr Nowak 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_u_i_menu_a9636572230f2cfc573ae418b7a210b69}\label{class_u_i_menu_a9636572230f2cfc573ae418b7a210b69}} 
+\index{UIMenu@{UIMenu}!UIMenu@{UIMenu}}
+\index{UIMenu@{UIMenu}!UIMenu@{UIMenu}}
+\doxysubsubsection{\texorpdfstring{UIMenu()}{UIMenu()}}
+{\footnotesize\ttfamily UIMenu\+::\+UIMenu (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{Parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Constructor used to initialize class. 
+\begin{DoxyParams}{Parameters}
+{\em Parent} & parent widget \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_u_i_menu_a438a1c41203e40687bddf2f1a73d4a21}\label{class_u_i_menu_a438a1c41203e40687bddf2f1a73d4a21}} 
+\index{UIMenu@{UIMenu}!InitMenu@{InitMenu}}
+\index{InitMenu@{InitMenu}!UIMenu@{UIMenu}}
+\doxysubsubsection{\texorpdfstring{InitMenu()}{InitMenu()}}
+{\footnotesize\ttfamily void UIMenu\+::\+Init\+Menu (\begin{DoxyParamCaption}\item[{QMenu\+Bar $\ast$}]{Menu\+Bar,  }\item[{\mbox{\hyperlink{class_f_player}{FPlayer}} $\ast$}]{Player }\end{DoxyParamCaption})}
+
+Add menus to menu bar and initialize event handlers 
+\begin{DoxyParams}{Parameters}
+{\em Menu\+Bar} & menu bar widget \\
+\hline
+{\em Player} & player instance \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_u_i_menu_aecf6929de9e02076797febd421e361e1}\label{class_u_i_menu_aecf6929de9e02076797febd421e361e1}} 
+\index{UIMenu@{UIMenu}!StartGame@{StartGame}}
+\index{StartGame@{StartGame}!UIMenu@{UIMenu}}
+\doxysubsubsection{\texorpdfstring{StartGame}{StartGame}}
+{\footnotesize\ttfamily void UIMenu\+::\+Start\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Emit start game signal 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/menu.\+h\item 
+src/menu.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,39 @@
+\hypertarget{scoredialog_8h_source}{}\doxysection{scoredialog.\+h}
+\label{scoredialog_8h_source}\index{src/scoredialog.h@{src/scoredialog.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SCOREDIALOG\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SCOREDIALOG\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{playerscores_8h}{game/playerscores.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QStandardItemModel>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QDialog>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }Ui}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }ScoreDialog;}
+\DoxyCodeLine{00011\ \}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_u_i_score_dialog}{UIScoreDialog}}\ :\ \textcolor{keyword}{public}\ QDialog}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_u_i_score_dialog}{UIScoreDialog}}(QWidget*\ Parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_u_i_score_dialog}{\string~UIScoreDialog}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_u_i_score_dialog_a94132b8ef884de69102fc01189c9eb26}{Show}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_player_scores}{FPlayerScores}}\&\ PlayerScores);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00038\ \ \ \ \ QStandardItemModel*\ TableViewModel\_;}
+\DoxyCodeLine{00039\ \ \ \ \ Ui::ScoreDialog\ *Ui\_;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ AddRow(\mbox{\hyperlink{struct_f_score}{FScore}}\ Score);}
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SCOREDIALOG\_H}}
+
+\end{DoxyCode}

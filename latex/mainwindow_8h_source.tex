@@ -1,0 +1,60 @@
+\hypertarget{mainwindow_8h_source}{}\doxysection{mainwindow.\+h}
+\label{mainwindow_8h_source}\index{src/mainwindow.h@{src/mainwindow.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MAINWINDOW\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MAINWINDOW\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}game/player.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}loadgamedialog.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}menu.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}puzzlewidget.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}windialog.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <QGridLayout>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <QMainWindow>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <QtWidgets>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ QT\_BEGIN\_NAMESPACE}
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }Ui}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }MainWindow;}
+\DoxyCodeLine{00018\ \}}
+\DoxyCodeLine{00019\ QT\_END\_NAMESPACE}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{typedef}\ std::vector<std::shared\_ptr<UIPuzzleWidget>>\ FPuzzleWidgets;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_u_i_main_window}{UIMainWindow}}\ :\ \textcolor{keyword}{public}\ QMainWindow}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_u_i_main_window}{UIMainWindow}}(QWidget*\ Parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_u_i_main_window}{\string~UIMainWindow}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_f_player}{FPlayer}}\ Player\_;}
+\DoxyCodeLine{00043\ \ \ \ \ FPuzzleWidgets\ PuzzleWidgets\_;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ Ui::MainWindow\ *Ui\_;}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_u_i_menu}{UIMenu}}*\ Menu;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_u_i_win_dialog}{UIWinDialog}}\ WinDialog\_;}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_u_i_load_game_dialog}{UILoadGameDialog}}\ LoadGameDialog\_;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ InitPuzzleWidgets();}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ InitGame();}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateGrid();}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateGridPosition(\mbox{\hyperlink{class_u_i_puzzle_widget}{UIPuzzleWidget}}*\ Widget,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_grid_position}{FGridPosition}}\&\ Position);}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ SwapWithEmptyPuzzle(\textcolor{keywordtype}{int}\ WidgetId);}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ ShowWinDialog();}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateLabels();}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateTimer();}
+\DoxyCodeLine{00060\ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MAINWINDOW\_H}}
+
+\end{DoxyCode}

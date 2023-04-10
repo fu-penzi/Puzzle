@@ -1,0 +1,73 @@
+\hypertarget{struct_f_game_state}{}\doxysection{FGame\+State Struct Reference}
+\label{struct_f_game_state}\index{FGameState@{FGameState}}
+
+
+Represents current game state.  
+
+
+
+
+{\ttfamily \#include $<$game.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{struct_f_game_state_aac7740e09d5fa112963bacd89e028db7}{Game\+Id}}
+\item 
+int \mbox{\hyperlink{struct_f_game_state_ab783046ef1b6f3629aab7a1f243f1530}{Moves}}
+\item 
+bool \mbox{\hyperlink{struct_f_game_state_aa63b079e776dc63bf889188908d6f264}{b\+Win}}
+\item 
+int \mbox{\hyperlink{struct_f_game_state_adfda0109f9dad9b95a5c27fbd24b2907}{Time}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_f_puzzle}{FPuzzle}} $>$ \mbox{\hyperlink{struct_f_game_state_a21f85f9122d4485022fc80aa3add5588}{Puzzle\+Vector}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents current game state. 
+
+\begin{DoxyAuthor}{Author}
+Piotr Nowak 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_f_game_state_aa63b079e776dc63bf889188908d6f264}\label{struct_f_game_state_aa63b079e776dc63bf889188908d6f264}} 
+\index{FGameState@{FGameState}!bWin@{bWin}}
+\index{bWin@{bWin}!FGameState@{FGameState}}
+\doxysubsubsection{\texorpdfstring{bWin}{bWin}}
+{\footnotesize\ttfamily bool FGame\+State\+::b\+Win}
+
+If player finished game before time run out. \mbox{\Hypertarget{struct_f_game_state_aac7740e09d5fa112963bacd89e028db7}\label{struct_f_game_state_aac7740e09d5fa112963bacd89e028db7}} 
+\index{FGameState@{FGameState}!GameId@{GameId}}
+\index{GameId@{GameId}!FGameState@{FGameState}}
+\doxysubsubsection{\texorpdfstring{GameId}{GameId}}
+{\footnotesize\ttfamily int FGame\+State\+::\+Game\+Id}
+
+Game unique identifier. ~\newline
+ \mbox{\Hypertarget{struct_f_game_state_ab783046ef1b6f3629aab7a1f243f1530}\label{struct_f_game_state_ab783046ef1b6f3629aab7a1f243f1530}} 
+\index{FGameState@{FGameState}!Moves@{Moves}}
+\index{Moves@{Moves}!FGameState@{FGameState}}
+\doxysubsubsection{\texorpdfstring{Moves}{Moves}}
+{\footnotesize\ttfamily int FGame\+State\+::\+Moves}
+
+Number of moves player made. ~\newline
+ \mbox{\Hypertarget{struct_f_game_state_a21f85f9122d4485022fc80aa3add5588}\label{struct_f_game_state_a21f85f9122d4485022fc80aa3add5588}} 
+\index{FGameState@{FGameState}!PuzzleVector@{PuzzleVector}}
+\index{PuzzleVector@{PuzzleVector}!FGameState@{FGameState}}
+\doxysubsubsection{\texorpdfstring{PuzzleVector}{PuzzleVector}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_f_puzzle}{FPuzzle}}$>$ FGame\+State\+::\+Puzzle\+Vector}
+
+Vector of puzzles. \mbox{\Hypertarget{struct_f_game_state_adfda0109f9dad9b95a5c27fbd24b2907}\label{struct_f_game_state_adfda0109f9dad9b95a5c27fbd24b2907}} 
+\index{FGameState@{FGameState}!Time@{Time}}
+\index{Time@{Time}!FGameState@{FGameState}}
+\doxysubsubsection{\texorpdfstring{Time}{Time}}
+{\footnotesize\ttfamily int FGame\+State\+::\+Time}
+
+Remaining time to finish game. ~\newline
+ 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/game/\mbox{\hyperlink{game_8h}{game.\+h}}\end{DoxyCompactItemize}

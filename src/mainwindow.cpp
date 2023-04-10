@@ -5,12 +5,12 @@
 #include <QGridLayout>
 #include <QPalette>
 
-MainWindow::MainWindow(QWidget *Parent)
+UIMainWindow::UIMainWindow(QWidget *Parent)
     : QMainWindow(Parent)
     , Ui_{new Ui::MainWindow}
 {
     Ui_->setupUi(this);
-    Menu = new FMenu(this->centralWidget());
+    Menu = new UIMenu(this->centralWidget());
     Menu->InitMenu(Ui_->menuBar, &Player_);
 
     QPixmap Bkgnd(":/bg.png");
@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *Parent)
     setPalette(Palette);
 
 
-    connect(Menu, &FMenu::StartGame, this, &MainWindow::InitGame);
+    connect(Menu, &UIMenu::StartGame, this, &UIMainWindow::InitGame);
 
     QTimer* Timer = new QTimer(this);
     connect(Timer, &QTimer::timeout, this, [&]()
@@ -38,12 +38,12 @@ MainWindow::MainWindow(QWidget *Parent)
     InitGame();
 }
 
-MainWindow::~MainWindow()
+UIMainWindow::~UIMainWindow()
 {
     delete Ui_;
 }
 
-void MainWindow::InitPuzzleWidgets()
+void UIMainWindow::InitPuzzleWidgets()
 {
     for (auto& Puzzle: Player_.CurrentGame()->PuzzleVector())
     {
@@ -51,14 +51,14 @@ void MainWindow::InitPuzzleWidgets()
         {
             continue;
         }
-        auto Widget = std::make_shared<FPuzzleWidget>(Puzzle.Id());
+        auto Widget = std::make_shared<UIPuzzleWidget>(Puzzle.Id());
         PuzzleWidgets_.push_back(Widget);
-        connect(Widget.get(), &FPuzzleWidget::OnClick, this, &MainWindow::SwapWithEmptyPuzzle);
+        connect(Widget.get(), &UIPuzzleWidget::OnClick, this, &UIMainWindow::SwapWithEmptyPuzzle);
     }
     UpdateGrid();
 }
 
-void MainWindow::InitGame()
+void UIMainWindow::InitGame()
 {
     UpdateLabels();
     PuzzleWidgets_.clear();
@@ -66,7 +66,7 @@ void MainWindow::InitGame()
     InitPuzzleWidgets();
 }
 
-void MainWindow::UpdateGrid()
+void UIMainWindow::UpdateGrid()
 {
     auto& PuzzleVector = Player_.CurrentGame()->PuzzleVector();
     for(int i = 0; i < PuzzleVector.size(); ++i)
@@ -80,7 +80,7 @@ void MainWindow::UpdateGrid()
     UpdateLabels();
 }
 
-void MainWindow::UpdateGridPosition(FPuzzleWidget* Widget, const FGridPosition& Position)
+void UIMainWindow::UpdateGridPosition(UIPuzzleWidget* Widget, const FGridPosition& Position)
 {
     if(Ui_->puzzleGrid->itemAtPosition(Position.Row, Position.Column))
     {
@@ -89,7 +89,7 @@ void MainWindow::UpdateGridPosition(FPuzzleWidget* Widget, const FGridPosition& 
     Ui_->puzzleGrid->addWidget(Widget, Position.Row, Position.Column);
 }
 
-void MainWindow::SwapWithEmptyPuzzle(int WidgetId)
+void UIMainWindow::SwapWithEmptyPuzzle(int WidgetId)
 {
     Player_.CurrentGame()->OnPuzzleClick(WidgetId);
     UpdateGrid();
@@ -101,12 +101,12 @@ void MainWindow::SwapWithEmptyPuzzle(int WidgetId)
     }
 }
 
-void MainWindow::ShowWinDialog()
+void UIMainWindow::ShowWinDialog()
 {
     WinDialog_.Show(Player_.CurrentGame()->bWin());
 }
 
-void MainWindow::UpdateLabels()
+void UIMainWindow::UpdateLabels()
 {
     QString GameIdLabelText = QString{"Game: " + QString::number(Player_.CurrentGame()->GameId())};
     QString MovesLabelText = QString("Moves: " + QString::number(Player_.CurrentGame()->Moves()));

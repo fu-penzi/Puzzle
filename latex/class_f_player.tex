@@ -1,0 +1,130 @@
+\hypertarget{class_f_player}{}\doxysection{FPlayer Class Reference}
+\label{class_f_player}\index{FPlayer@{FPlayer}}
+
+
+Saves and loads player scores.  
+
+
+
+
+{\ttfamily \#include $<$player.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_player_aca5e67afb00d7c51e412d0622d34984a}{FPlayer}} ()
+\item 
+const \mbox{\hyperlink{class_f_player_scores}{FPlayer\+Scores}} \& \mbox{\hyperlink{class_f_player_a0f56c4671d840043e12c8ba6feaae7a8}{Player\+Scores}} () const
+\item 
+const std\+::vector$<$ std\+::string $>$ \& \mbox{\hyperlink{class_f_player_abe7bd2375bfff2be171659ddc7bb6eac}{Game\+Saves}} () const
+\item 
+bool \mbox{\hyperlink{class_f_player_adfa03d09aafe661426af989f38a65c0f}{Pause}} () const
+\item 
+\mbox{\hyperlink{class_f_game}{FGame}} $\ast$ \mbox{\hyperlink{class_f_player_a4870d287de903871bee64e02e7891fd9}{Current\+Game}} ()
+\item 
+void \mbox{\hyperlink{class_f_player_a1f42fbffc7b5710f7e983c4d5a985d68}{New\+Game}} (\mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}} Difficulty, \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}} Game\+Mode)
+\item 
+void \mbox{\hyperlink{class_f_player_a84b556dc1c15c6d714b354fcb1f7721d}{Save\+Game}} ()
+\item 
+void \mbox{\hyperlink{class_f_player_a2fdd6c76284d57c112e17184fa79e8e5}{Finish\+Game}} ()
+\item 
+void \mbox{\hyperlink{class_f_player_a3aecbd84f53af48417fc7b5659dd7e41}{Load\+Game}} (std\+::string Save\+Name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Saves and loads player scores. 
+
+\begin{DoxyAuthor}{Author}
+Piotr Nowak 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_f_player_aca5e67afb00d7c51e412d0622d34984a}\label{class_f_player_aca5e67afb00d7c51e412d0622d34984a}} 
+\index{FPlayer@{FPlayer}!FPlayer@{FPlayer}}
+\index{FPlayer@{FPlayer}!FPlayer@{FPlayer}}
+\doxysubsubsection{\texorpdfstring{FPlayer()}{FPlayer()}}
+{\footnotesize\ttfamily FPlayer\+::\+FPlayer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor. Initializes directories and finds all save files. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_f_player_a4870d287de903871bee64e02e7891fd9}\label{class_f_player_a4870d287de903871bee64e02e7891fd9}} 
+\index{FPlayer@{FPlayer}!CurrentGame@{CurrentGame}}
+\index{CurrentGame@{CurrentGame}!FPlayer@{FPlayer}}
+\doxysubsubsection{\texorpdfstring{CurrentGame()}{CurrentGame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_f_game}{FGame}} $\ast$ FPlayer\+::\+Current\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter \begin{DoxyReturn}{Returns}
+pointer to current game 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_player_a2fdd6c76284d57c112e17184fa79e8e5}\label{class_f_player_a2fdd6c76284d57c112e17184fa79e8e5}} 
+\index{FPlayer@{FPlayer}!FinishGame@{FinishGame}}
+\index{FinishGame@{FinishGame}!FPlayer@{FPlayer}}
+\doxysubsubsection{\texorpdfstring{FinishGame()}{FinishGame()}}
+{\footnotesize\ttfamily void FPlayer\+::\+Finish\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Finish current game and create new score \mbox{\Hypertarget{class_f_player_abe7bd2375bfff2be171659ddc7bb6eac}\label{class_f_player_abe7bd2375bfff2be171659ddc7bb6eac}} 
+\index{FPlayer@{FPlayer}!GameSaves@{GameSaves}}
+\index{GameSaves@{GameSaves}!FPlayer@{FPlayer}}
+\doxysubsubsection{\texorpdfstring{GameSaves()}{GameSaves()}}
+{\footnotesize\ttfamily const std\+::vector$<$ std\+::string $>$ \& FPlayer\+::\+Game\+Saves (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter \begin{DoxyReturn}{Returns}
+vector of player game save file names 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_player_a3aecbd84f53af48417fc7b5659dd7e41}\label{class_f_player_a3aecbd84f53af48417fc7b5659dd7e41}} 
+\index{FPlayer@{FPlayer}!LoadGame@{LoadGame}}
+\index{LoadGame@{LoadGame}!FPlayer@{FPlayer}}
+\doxysubsubsection{\texorpdfstring{LoadGame()}{LoadGame()}}
+{\footnotesize\ttfamily void FPlayer\+::\+Load\+Game (\begin{DoxyParamCaption}\item[{std\+::string}]{Save\+Name }\end{DoxyParamCaption})}
+
+Loads game from save file. 
+\begin{DoxyParams}{Parameters}
+{\em Save\+Name} & name of save file to load \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_f_player_a1f42fbffc7b5710f7e983c4d5a985d68}\label{class_f_player_a1f42fbffc7b5710f7e983c4d5a985d68}} 
+\index{FPlayer@{FPlayer}!NewGame@{NewGame}}
+\index{NewGame@{NewGame}!FPlayer@{FPlayer}}
+\doxysubsubsection{\texorpdfstring{NewGame()}{NewGame()}}
+{\footnotesize\ttfamily void FPlayer\+::\+New\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}}}]{Difficulty,  }\item[{\mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}}}]{Game\+Mode }\end{DoxyParamCaption})}
+
+Start new game. 
+\begin{DoxyParams}{Parameters}
+{\em Difficulty} & new game difficulty \\
+\hline
+{\em Game\+Mode} & new game mode \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_f_player_adfa03d09aafe661426af989f38a65c0f}\label{class_f_player_adfa03d09aafe661426af989f38a65c0f}} 
+\index{FPlayer@{FPlayer}!Pause@{Pause}}
+\index{Pause@{Pause}!FPlayer@{FPlayer}}
+\doxysubsubsection{\texorpdfstring{Pause()}{Pause()}}
+{\footnotesize\ttfamily bool FPlayer\+::\+Pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter \begin{DoxyReturn}{Returns}
+is current game paused 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_player_a0f56c4671d840043e12c8ba6feaae7a8}\label{class_f_player_a0f56c4671d840043e12c8ba6feaae7a8}} 
+\index{FPlayer@{FPlayer}!PlayerScores@{PlayerScores}}
+\index{PlayerScores@{PlayerScores}!FPlayer@{FPlayer}}
+\doxysubsubsection{\texorpdfstring{PlayerScores()}{PlayerScores()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_f_player_scores}{FPlayer\+Scores}} \& FPlayer\+::\+Player\+Scores (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter \begin{DoxyReturn}{Returns}
+player scores 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_player_a84b556dc1c15c6d714b354fcb1f7721d}\label{class_f_player_a84b556dc1c15c6d714b354fcb1f7721d}} 
+\index{FPlayer@{FPlayer}!SaveGame@{SaveGame}}
+\index{SaveGame@{SaveGame}!FPlayer@{FPlayer}}
+\doxysubsubsection{\texorpdfstring{SaveGame()}{SaveGame()}}
+{\footnotesize\ttfamily void FPlayer\+::\+Save\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Save current game state to file. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/game/player.\+h\item 
+src/game/player.\+cpp\end{DoxyCompactItemize}

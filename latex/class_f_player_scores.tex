@@ -1,0 +1,112 @@
+\hypertarget{class_f_player_scores}{}\doxysection{FPlayer\+Scores Class Reference}
+\label{class_f_player_scores}\index{FPlayerScores@{FPlayerScores}}
+
+
+Saves and loads player scores.  
+
+
+
+
+{\ttfamily \#include $<$playerscores.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_player_scores_a65d4550bb7d955f9cddfd0ee55442992}{FPlayer\+Scores}} (std\+::string Score\+Path)
+\item 
+int \mbox{\hyperlink{class_f_player_scores_aa5104839826ab139ac700fb6b7f46463}{Games\+Played}} () const
+\item 
+int \mbox{\hyperlink{class_f_player_scores_a0bec64a8751928ee6402a7d353e1d422}{Games\+Won}} () const
+\item 
+int \mbox{\hyperlink{class_f_player_scores_a6abf25a6f204a92ae17d0b8d6a664e1c}{Games\+Lost}} () const
+\item 
+const std\+::vector$<$ \mbox{\hyperlink{struct_f_score}{FScore}} $>$ \& \mbox{\hyperlink{class_f_player_scores_a448b7d6ec0a229271ad843a1294f9b32}{Scores}} () const
+\item 
+void \mbox{\hyperlink{class_f_player_scores_a29d03faa17881b70eb8c53c1ec1efad1}{Add\+Started\+Game}} ()
+\item 
+void \mbox{\hyperlink{class_f_player_scores_a2502b58e897f092163c3278ea45c2b3c}{Save\+Score}} (\mbox{\hyperlink{class_f_game}{FGame}} $\ast$Game)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Saves and loads player scores. 
+
+\begin{DoxyAuthor}{Author}
+Piotr Nowak 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_f_player_scores_a65d4550bb7d955f9cddfd0ee55442992}\label{class_f_player_scores_a65d4550bb7d955f9cddfd0ee55442992}} 
+\index{FPlayerScores@{FPlayerScores}!FPlayerScores@{FPlayerScores}}
+\index{FPlayerScores@{FPlayerScores}!FPlayerScores@{FPlayerScores}}
+\doxysubsubsection{\texorpdfstring{FPlayerScores()}{FPlayerScores()}}
+{\footnotesize\ttfamily FPlayer\+Scores\+::\+FPlayer\+Scores (\begin{DoxyParamCaption}\item[{std\+::string}]{Score\+Path }\end{DoxyParamCaption})}
+
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em Score\+Path} & path of file with player scores. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_f_player_scores_a29d03faa17881b70eb8c53c1ec1efad1}\label{class_f_player_scores_a29d03faa17881b70eb8c53c1ec1efad1}} 
+\index{FPlayerScores@{FPlayerScores}!AddStartedGame@{AddStartedGame}}
+\index{AddStartedGame@{AddStartedGame}!FPlayerScores@{FPlayerScores}}
+\doxysubsubsection{\texorpdfstring{AddStartedGame()}{AddStartedGame()}}
+{\footnotesize\ttfamily void FPlayer\+Scores\+::\+Add\+Started\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Increase number of total games played. \mbox{\Hypertarget{class_f_player_scores_a6abf25a6f204a92ae17d0b8d6a664e1c}\label{class_f_player_scores_a6abf25a6f204a92ae17d0b8d6a664e1c}} 
+\index{FPlayerScores@{FPlayerScores}!GamesLost@{GamesLost}}
+\index{GamesLost@{GamesLost}!FPlayerScores@{FPlayerScores}}
+\doxysubsubsection{\texorpdfstring{GamesLost()}{GamesLost()}}
+{\footnotesize\ttfamily int FPlayer\+Scores\+::\+Games\+Lost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter \begin{DoxyReturn}{Returns}
+Number of games player lost. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_player_scores_aa5104839826ab139ac700fb6b7f46463}\label{class_f_player_scores_aa5104839826ab139ac700fb6b7f46463}} 
+\index{FPlayerScores@{FPlayerScores}!GamesPlayed@{GamesPlayed}}
+\index{GamesPlayed@{GamesPlayed}!FPlayerScores@{FPlayerScores}}
+\doxysubsubsection{\texorpdfstring{GamesPlayed()}{GamesPlayed()}}
+{\footnotesize\ttfamily int FPlayer\+Scores\+::\+Games\+Played (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter \begin{DoxyReturn}{Returns}
+Total number of games player played. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_player_scores_a0bec64a8751928ee6402a7d353e1d422}\label{class_f_player_scores_a0bec64a8751928ee6402a7d353e1d422}} 
+\index{FPlayerScores@{FPlayerScores}!GamesWon@{GamesWon}}
+\index{GamesWon@{GamesWon}!FPlayerScores@{FPlayerScores}}
+\doxysubsubsection{\texorpdfstring{GamesWon()}{GamesWon()}}
+{\footnotesize\ttfamily int FPlayer\+Scores\+::\+Games\+Won (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter \begin{DoxyReturn}{Returns}
+Number of games player won. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_player_scores_a2502b58e897f092163c3278ea45c2b3c}\label{class_f_player_scores_a2502b58e897f092163c3278ea45c2b3c}} 
+\index{FPlayerScores@{FPlayerScores}!SaveScore@{SaveScore}}
+\index{SaveScore@{SaveScore}!FPlayerScores@{FPlayerScores}}
+\doxysubsubsection{\texorpdfstring{SaveScore()}{SaveScore()}}
+{\footnotesize\ttfamily void FPlayer\+Scores\+::\+Save\+Score (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_f_game}{FGame}} $\ast$}]{Game }\end{DoxyParamCaption})}
+
+Save finished game score to file. 
+\begin{DoxyParams}{Parameters}
+{\em Game} & finished game used to create new score. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_f_player_scores_a448b7d6ec0a229271ad843a1294f9b32}\label{class_f_player_scores_a448b7d6ec0a229271ad843a1294f9b32}} 
+\index{FPlayerScores@{FPlayerScores}!Scores@{Scores}}
+\index{Scores@{Scores}!FPlayerScores@{FPlayerScores}}
+\doxysubsubsection{\texorpdfstring{Scores()}{Scores()}}
+{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{struct_f_score}{FScore}} $>$ \& FPlayer\+Scores\+::\+Scores (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter \begin{DoxyReturn}{Returns}
+Vector of scores for games player finished. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/game/\mbox{\hyperlink{playerscores_8h}{playerscores.\+h}}\item 
+src/game/playerscores.\+cpp\end{DoxyCompactItemize}

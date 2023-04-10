@@ -1,0 +1,56 @@
+\hypertarget{playerscores_8h_source}{}\doxysection{playerscores.\+h}
+\label{playerscores_8h_source}\index{src/game/playerscores.h@{src/game/playerscores.h}}
+\mbox{\hyperlink{playerscores_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SCORE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SCORE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{game_8h}{game.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gameconfig_8h}{gameconfig.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_score}{FScore}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_f_score_aed409d6e073866e307d67ce071bb66a1}{GameId}};\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_f_score_a26f87c77b965ef2f365656dd63bc20e9}{RemainingTime}};\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_f_score_a62bd33e61f6bedde515dbc7a1abbf8ca}{Moves}};\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_f_score_aa4460b2422b671ed7a3b41f9ab082f57}{bWin}};\ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}}\ \mbox{\hyperlink{struct_f_score_affa9b36c8cdc22762a0c1ed53789dd96}{Difficulty}};\ }
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}}\ \mbox{\hyperlink{struct_f_score_aeb3fb7c6c22af04f6afdea84641462f6}{GameMode}};\ }
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_player_scores}{FPlayerScores}}}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_f_player_scores}{FPlayerScores}}(std::string\ ScorePath);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_f_player_scores_aa5104839826ab139ac700fb6b7f46463}{GamesPlayed}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_f_player_scores_a0bec64a8751928ee6402a7d353e1d422}{GamesWon}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_f_player_scores_a6abf25a6f204a92ae17d0b8d6a664e1c}{GamesLost}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<FScore>\&\ \mbox{\hyperlink{class_f_player_scores_a448b7d6ec0a229271ad843a1294f9b32}{Scores}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_player_scores_a29d03faa17881b70eb8c53c1ec1efad1}{AddStartedGame}}();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_player_scores_a2502b58e897f092163c3278ea45c2b3c}{SaveScore}}(\mbox{\hyperlink{class_f_game}{FGame}}*\ Game);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{int}\ GamesPlayed\_\ =\ 0;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{int}\ GamesWon\_\ =\ 0;}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ GamesLost\_\ =\ 0;}
+\DoxyCodeLine{00079\ \ \ \ \ std::vector<FScore>\ Scores\_;}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ ScorePath\_;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateScoreFile();}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ LoadScoreFile();}
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SCORE\_H}}
+
+\end{DoxyCode}

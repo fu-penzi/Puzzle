@@ -11,18 +11,31 @@ class WinDialog;
 }
 QT_END_NAMESPACE
 
-class FWinDialog : public QDialog
+/**
+ *  @author Piotr Nowak
+ *  @brief End of game dialog window
+ */
+class UIWinDialog : public QDialog
 {
     Q_OBJECT
 
+public:
+
+    /**
+     * Constructor used to initialize class.
+     * @param Parent parent widget
+     */
+    explicit UIWinDialog(QWidget* Parent = nullptr);
+    ~UIWinDialog();
+
+    /**
+     * Show dialog window.
+     * @param bWin is game won or lost
+     */
+    void Show(bool bWin);
+
 private:
     Ui::WinDialog *Ui_;
-
-public:
-    explicit FWinDialog(QWidget *parent = nullptr);
-    ~FWinDialog();
-
-    void Show(bool bWin);
 };
 
 #endif // WINDIALOG_H

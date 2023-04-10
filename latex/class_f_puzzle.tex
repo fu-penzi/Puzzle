@@ -1,0 +1,116 @@
+\hypertarget{class_f_puzzle}{}\doxysection{FPuzzle Class Reference}
+\label{class_f_puzzle}\index{FPuzzle@{FPuzzle}}
+
+
+Represents a single puzzle piece.  
+
+
+
+
+{\ttfamily \#include $<$puzzle.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_f_puzzle_ae8241fe75014290285c859e6729db3e9}{FPuzzle}} ()
+\item 
+\mbox{\hyperlink{class_f_puzzle_abc1adfbcd1edde4111645b6507aafa40}{FPuzzle}} (int \mbox{\hyperlink{class_f_puzzle_aba07a3d09fef5e67aac6b07b494add10}{Id}}, \mbox{\hyperlink{struct_f_grid_position}{FGrid\+Position}} \mbox{\hyperlink{class_f_puzzle_a0aa7cc6b123e88bfc59705d3eea6f244}{Grid\+Position}}, \mbox{\hyperlink{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6}{EPuzzle\+Type}} \mbox{\hyperlink{class_f_puzzle_a527cd86aa1b85dd6533b1b319a04b65d}{Puzzle\+Type}})
+\item 
+const \mbox{\hyperlink{struct_f_grid_position}{FGrid\+Position}} \& \mbox{\hyperlink{class_f_puzzle_a0aa7cc6b123e88bfc59705d3eea6f244}{Grid\+Position}} () const
+\item 
+void \mbox{\hyperlink{class_f_puzzle_a7ea458121ab9c61dd7f30fee922f036c}{Set\+Grid\+Position}} (const \mbox{\hyperlink{struct_f_grid_position}{FGrid\+Position}} \&New\+Grid\+Position)
+\item 
+int \mbox{\hyperlink{class_f_puzzle_aba07a3d09fef5e67aac6b07b494add10}{Id}} () const
+\item 
+\mbox{\hyperlink{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6}{EPuzzle\+Type}} \mbox{\hyperlink{class_f_puzzle_a527cd86aa1b85dd6533b1b319a04b65d}{Puzzle\+Type}} () const
+\item 
+bool \mbox{\hyperlink{class_f_puzzle_a544264e0b33913286a197e6109ea39db}{Is\+Neighbour}} (const \mbox{\hyperlink{class_f_puzzle}{FPuzzle}} \&Puzzle) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a single puzzle piece. 
+
+\begin{DoxyAuthor}{Author}
+Piotr Nowak 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_f_puzzle_ae8241fe75014290285c859e6729db3e9}\label{class_f_puzzle_ae8241fe75014290285c859e6729db3e9}} 
+\index{FPuzzle@{FPuzzle}!FPuzzle@{FPuzzle}}
+\index{FPuzzle@{FPuzzle}!FPuzzle@{FPuzzle}}
+\doxysubsubsection{\texorpdfstring{FPuzzle()}{FPuzzle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily FPuzzle\+::\+FPuzzle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor \mbox{\Hypertarget{class_f_puzzle_abc1adfbcd1edde4111645b6507aafa40}\label{class_f_puzzle_abc1adfbcd1edde4111645b6507aafa40}} 
+\index{FPuzzle@{FPuzzle}!FPuzzle@{FPuzzle}}
+\index{FPuzzle@{FPuzzle}!FPuzzle@{FPuzzle}}
+\doxysubsubsection{\texorpdfstring{FPuzzle()}{FPuzzle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily FPuzzle\+::\+FPuzzle (\begin{DoxyParamCaption}\item[{int}]{Id,  }\item[{\mbox{\hyperlink{struct_f_grid_position}{FGrid\+Position}}}]{Grid\+Position,  }\item[{\mbox{\hyperlink{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6}{EPuzzle\+Type}}}]{Puzzle\+Type }\end{DoxyParamCaption})}
+
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em Id} & puzzle unique identifier. \\
+\hline
+{\em Grid\+Position} & initial puzzle grid position. \\
+\hline
+{\em Puzzle\+Type} & enum type of puzzle. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_f_puzzle_a0aa7cc6b123e88bfc59705d3eea6f244}\label{class_f_puzzle_a0aa7cc6b123e88bfc59705d3eea6f244}} 
+\index{FPuzzle@{FPuzzle}!GridPosition@{GridPosition}}
+\index{GridPosition@{GridPosition}!FPuzzle@{FPuzzle}}
+\doxysubsubsection{\texorpdfstring{GridPosition()}{GridPosition()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct_f_grid_position}{FGrid\+Position}} \& FPuzzle\+::\+Grid\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter \begin{DoxyReturn}{Returns}
+Current grid position of puzzle 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_puzzle_aba07a3d09fef5e67aac6b07b494add10}\label{class_f_puzzle_aba07a3d09fef5e67aac6b07b494add10}} 
+\index{FPuzzle@{FPuzzle}!Id@{Id}}
+\index{Id@{Id}!FPuzzle@{FPuzzle}}
+\doxysubsubsection{\texorpdfstring{Id()}{Id()}}
+{\footnotesize\ttfamily int FPuzzle\+::\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter \begin{DoxyReturn}{Returns}
+Puzzle unique identifier used to check if puzzle is on correct position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_puzzle_a544264e0b33913286a197e6109ea39db}\label{class_f_puzzle_a544264e0b33913286a197e6109ea39db}} 
+\index{FPuzzle@{FPuzzle}!IsNeighbour@{IsNeighbour}}
+\index{IsNeighbour@{IsNeighbour}!FPuzzle@{FPuzzle}}
+\doxysubsubsection{\texorpdfstring{IsNeighbour()}{IsNeighbour()}}
+{\footnotesize\ttfamily bool FPuzzle\+::\+Is\+Neighbour (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_f_puzzle}{FPuzzle}} \&}]{Puzzle }\end{DoxyParamCaption}) const}
+
+Check if puzzle passed in parameter is on top, left, right or bottom side. 
+\begin{DoxyParams}{Parameters}
+{\em Puzzle} & puzzle to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result of check. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_puzzle_a527cd86aa1b85dd6533b1b319a04b65d}\label{class_f_puzzle_a527cd86aa1b85dd6533b1b319a04b65d}} 
+\index{FPuzzle@{FPuzzle}!PuzzleType@{PuzzleType}}
+\index{PuzzleType@{PuzzleType}!FPuzzle@{FPuzzle}}
+\doxysubsubsection{\texorpdfstring{PuzzleType()}{PuzzleType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{puzzle_8h_a13b9a099ddb82a585d14669131fc86d6}{EPuzzle\+Type}} FPuzzle\+::\+Puzzle\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter \begin{DoxyReturn}{Returns}
+Puzzle type 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_puzzle_a7ea458121ab9c61dd7f30fee922f036c}\label{class_f_puzzle_a7ea458121ab9c61dd7f30fee922f036c}} 
+\index{FPuzzle@{FPuzzle}!SetGridPosition@{SetGridPosition}}
+\index{SetGridPosition@{SetGridPosition}!FPuzzle@{FPuzzle}}
+\doxysubsubsection{\texorpdfstring{SetGridPosition()}{SetGridPosition()}}
+{\footnotesize\ttfamily void FPuzzle\+::\+Set\+Grid\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_f_grid_position}{FGrid\+Position}} \&}]{New\+Grid\+Position }\end{DoxyParamCaption})}
+
+Setter for position of puzzle in grid 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/game/\mbox{\hyperlink{puzzle_8h}{puzzle.\+h}}\item 
+src/game/puzzle.\+cpp\end{DoxyCompactItemize}

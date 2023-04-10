@@ -1,0 +1,70 @@
+\hypertarget{game_8h_source}{}\doxysection{game.\+h}
+\label{game_8h_source}\index{src/game/game.h@{src/game/game.h}}
+\mbox{\hyperlink{game_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ FGAME\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ FGAME\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gameconfig_8h}{gameconfig.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{puzzle_8h}{puzzle.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_f_game_state}{FGameState}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_f_game_state_aac7740e09d5fa112963bacd89e028db7}{GameId}};\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_f_game_state_ab783046ef1b6f3629aab7a1f243f1530}{Moves}};\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_f_game_state_aa63b079e776dc63bf889188908d6f264}{bWin}};\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_f_game_state_adfda0109f9dad9b95a5c27fbd24b2907}{Time}};\ }
+\DoxyCodeLine{00021\ \ \ \ \ std::vector<FPuzzle>\ \mbox{\hyperlink{struct_f_game_state_a21f85f9122d4485022fc80aa3add5588}{PuzzleVector}};\ }
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_game}{FGame}}}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_f_game}{FGame}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_f_game_aa9e17067e8b17fa026a1f0d04295ea7d}{GameId}},\ \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}}\ Difficulty,\ \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}}\ Mode);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_f_game}{FGame}}(\mbox{\hyperlink{struct_f_game_state}{FGameState}}\ \mbox{\hyperlink{class_f_game_adc24941cc4176f9fff9c0f52045d6419}{GameState}},\ \mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}}\ Difficulty,\ \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}}\ Mode);}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_f_game}{\string~FGame}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_f_game_aa9e17067e8b17fa026a1f0d04295ea7d}{GameId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_f_game_a12af412ef0a28682b600a968f4799ad6}{Moves}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_game_a397464b990b3bf616e611d2a4382f7d9}{bWin}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_f_game_a0a0f2e56f46dcdf7ee442cc243099b2c}{Time}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<FPuzzle>\&\ \mbox{\hyperlink{class_f_game_a7892b61abbdd6de700c3c4f36bcdd199}{PuzzleVector}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_game_state}{FGameState}}\&\ \mbox{\hyperlink{class_f_game_adc24941cc4176f9fff9c0f52045d6419}{GameState}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_game_config}{FGameConfig}}\&\ \mbox{\hyperlink{class_f_game_a73fc30207f4dc968f2e88da3f11492cf}{GameConfig}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_game_af537d371b651ec48616ae4332fc2d0fd}{OnPuzzleClick}}(\textcolor{keywordtype}{int}\ WidgetId)\ =\ 0;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_game_a785f454112b31eb190feba70b1dcfc3f}{UpdateTimer}}();}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_game_a7cb17ea5ceac235e331f5ada7475a26e}{IsFinished}}();}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{struct_f_game_state}{FGameState}}\ GameState\_\{\};}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{class_f_game_config}{FGameConfig}}\ GameConfig\_\{\};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{bool}\ CheckWin();}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ SwapPuzzlePositions(\mbox{\hyperlink{class_f_puzzle}{FPuzzle}}\&\ A,\ \mbox{\hyperlink{class_f_puzzle}{FPuzzle}}\&\ B);}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{struct_f_grid_position}{FGridPosition}}\ IndexToGridPosition(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{00118\ \ \ \ \ std::vector<int>\ GetShuffledIdxArray();}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ InitPuzzle()\ =\ 0;}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{int}\ GridPositionToIndex(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_f_grid_position}{FGridPosition}}\&\ Position);}
+\DoxyCodeLine{00123\ \};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ FGAME\_H}}
+
+\end{DoxyCode}

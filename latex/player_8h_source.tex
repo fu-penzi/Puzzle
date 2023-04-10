@@ -1,0 +1,57 @@
+\hypertarget{player_8h_source}{}\doxysection{player.\+h}
+\label{player_8h_source}\index{src/game/player.h@{src/game/player.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PLAYER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PLAYER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{game_8h}{game.h}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{playerscores_8h}{playerscores.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_player}{FPlayer}}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_f_player_aca5e67afb00d7c51e412d0622d34984a}{FPlayer}}();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_f_player_scores}{FPlayerScores}}\&\ \mbox{\hyperlink{class_f_player_a0f56c4671d840043e12c8ba6feaae7a8}{PlayerScores}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\&\ \mbox{\hyperlink{class_f_player_abe7bd2375bfff2be171659ddc7bb6eac}{GameSaves}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_f_player_adfa03d09aafe661426af989f38a65c0f}{Pause}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_f_game}{FGame}}*\ \mbox{\hyperlink{class_f_player_a4870d287de903871bee64e02e7891fd9}{CurrentGame}}();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_player_a1f42fbffc7b5710f7e983c4d5a985d68}{NewGame}}(\mbox{\hyperlink{gameconfig_8h_a103a8a44242a464d6c41af6ddebd55a6}{EDifficulty}}\ Difficulty,\ \mbox{\hyperlink{gameconfig_8h_a837590fd5310ff5df56ffcf7c394787e}{EMode}}\ GameMode);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_player_a84b556dc1c15c6d714b354fcb1f7721d}{SaveGame}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_player_a2fdd6c76284d57c112e17184fa79e8e5}{FinishGame}}();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_player_a3aecbd84f53af48417fc7b5659dd7e41}{LoadGame}}(std::string\ SaveName);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00075\ \ \ \ \ std::unique\_ptr<FGame>\ CurrentGame\_\{\};}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{class_f_player_scores}{FPlayerScores}}\ PlayerScores\_\{\textcolor{stringliteral}{"{}Profiles/Player/Score"{}}\};}
+\DoxyCodeLine{00077\ \ \ \ \ std::vector<std::string>\ GameSaves\_\{\};}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ Pause\_\{\};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ ProfilesDirPath\_\ \{\textcolor{stringliteral}{"{}Profiles"{}}\};}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ ProfilePath\_\ \{ProfilesDirPath\_\ +\ \textcolor{stringliteral}{"{}/Player"{}}\};}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ SaveDirPath\_\ \{ProfilePath\_\ +\ \textcolor{stringliteral}{"{}/Saves"{}}\};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ UpdateGameSaves();}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveSave(std::string\ Filename);}
+\DoxyCodeLine{00087\ \};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PLAYER\_H}}
+
+\end{DoxyCode}

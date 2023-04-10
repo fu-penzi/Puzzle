@@ -2,8 +2,8 @@
 #include "ui_loadgamedialog.h"
 #include <iostream>
 
-FLoadGameDialog::FLoadGameDialog(QWidget *parent) :
-    QDialog(parent),
+UILoadGameDialog::UILoadGameDialog(QWidget *Parent) :
+    QDialog(Parent),
     Ui_(new Ui::LoadGameDialog)
 {
     Ui_->setupUi(this);
@@ -19,12 +19,12 @@ FLoadGameDialog::FLoadGameDialog(QWidget *parent) :
     });
 }
 
-FLoadGameDialog::~FLoadGameDialog()
+UILoadGameDialog::~UILoadGameDialog()
 {
     delete Ui_;
 }
 
-void FLoadGameDialog::SetGameSaves(const std::vector<std::string> &NewGameSaves)
+void UILoadGameDialog::SetGameSaves(const std::vector<std::string> &NewGameSaves)
 {
     GameSaves_.clear();
     for (const auto& Save : NewGameSaves)
